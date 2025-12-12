@@ -8,7 +8,8 @@
         <classes>
 <!--            <class name="com.qa.OrangeHRMDemoSite.test.employeeMgmtTest"></class>-->
 <!--            <class name="com.qa.OrangeHRMDemoSite.test.leaveMgmtTest"></class>-->
-            <class name="com.qa.OrangeHRMDemoSite.test.recruitementTest"></class>
+            <!-- <class name="com.qa.OrangeHRMDemoSite.test.recruitementTest"></class>-->
+            <class name="com.qa.OrangeHRMDemoSite.test.loginTest"></class>
         </classes>
     </test>
 </suite>
