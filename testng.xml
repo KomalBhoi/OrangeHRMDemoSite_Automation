@@ -6,6 +6,7 @@
     </listeners>
     <test name="Employee Tests">
         <classes>
+<<<<<<< HEAD
                 <class name="com.qa.OrangeHRMDemoSite.test.loginTest"></class>
                 <class name="com.qa.OrangeHRMDemoSite.test.employeeMgmtTest"></class>
                 <class name="com.qa.OrangeHRMDemoSite.test.recruitementTest"></class>
@@ -14,3 +15,12 @@
         </classes>
     </test>
 </suite>
+=======
+<!--            <class name="com.qa.OrangeHRMDemoSite.test.employeeMgmtTest"></class>-->
+<!--            <class name="com.qa.OrangeHRMDemoSite.test.leaveMgmtTest"></class>-->
+            <!-- <class name="com.qa.OrangeHRMDemoSite.test.recruitementTest"></class>-->
+            <class name="com.qa.OrangeHRMDemoSite.test.loginTest"></class>
+        </classes>
+    </test>
+</suite>
+>>>>>>> 0aa956266a5c583b712973f847f86caec9f00663
