@@ -44,11 +44,111 @@ public class leaveMgmtPage extends basePage {
     private By searchSubUnit = By.xpath("//div[@class='oxd-layout-context']//label[text()='Sub Unit']/following::div[contains(@class,'oxd-select-text-input')][1]");
     private By searchBtn = By.xpath("//button[@type='submit']");
     private By tableRows = By.xpath("//div[@class='oxd-table-body']//div[@role='row']");
+    private By noRecords = By.xpath("//span[text()='No Records Found']");
     private By toastMsg = By.xpath("//p[contains(text(),'Successfully Assigned') or contains(text(),'Failed')]");
     private By partialDaysSection = By.xpath("//label[text()='Partial Days']");
     private By partialDaysDropdown = By.xpath("//label[text()='Partial Days']/following::div[@class='oxd-select-text-input'][1]");
     private By partialDaysOptionNone = By.xpath("//div[@role='option']//span[text()='None']");
     private By alertOkBtn=By.xpath("//button[text()=' Ok ']");
+    private By configureTab = By.xpath("//span[text()='Configure ']");
+    private By addLeaveType = By.xpath("//a[@role='menuitem' and text()='Leave Types']");
+    private By addBtnLeaveType = By.xpath("//i[@class='oxd-icon bi-plus oxd-button-icon']");
+    private By leaveTypeNm = By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]");
+    private By saveBtn = By.xpath("//button[@type='submit']");
+
+    /** 🔎 Check if leave type already exists */
+    public boolean isLeaveTypePresent(String leaveTypeText) {
+        clickElement(leaveListTab);
+        clickElement(leaveListTab);
+        WaitHelpers.waitForPresence(tableRows);
+
+        return driver().findElements(
+                By.xpath("//div[@role='cell']//span[text()='" + leaveTypeText + "']")
+        ).size() > 0;
+    }
+//
+//    public void createLeaveTypeIfRequired(String leaveTypeNm) throws InterruptedException
+//    {
+//        addLeaveType(leaveTypeNm);
+//    }
+//
+
+    public void initializeLeaveModuleIfRequired() {
+
+        log.info("Checking Leave module initialization...");
+
+        // Navigate to Leave module
+        WaitHelpers.waitForClickable(leaveLink);
+        clickElement(leaveLink);
+
+        // Month/Year Save page appears only on first access
+        By saveBtn = By.xpath("//button[@type='submit' and contains(.,'Save')]");
+
+        if (isElementPresent(saveBtn, 5)) {
+            log.info("Leave module initial setup detected. Clicking Save.");
+
+            WaitHelpers.waitForClickable(saveBtn);
+            clickElement(saveBtn);
+
+            // Wait for Leave sub-menu to appear
+            WaitHelpers.waitForInvisibility(saveBtn);
+            WaitHelpers.waitForClickable(assignLeaveTab);
+
+            log.info("Leave module initialized successfully.");
+        } else {
+            log.info("Leave module already initialized. Skipping setup.");
+        }
+    }
+
+    public void ensureLeaveTypeExists(String leaveTypeName) {
+
+        log.info("Ensuring Leave Type exists: " + leaveTypeName);
+
+        // Navigate to Configure → Leave Types
+        WaitHelpers.waitForClickable(configureTab);
+        clickElement(configureTab);
+
+        WaitHelpers.waitForClickable(leaveType);
+        clickElement(leaveType);
+
+        WaitHelpers.waitForVisible(leaveType);
+
+        // Check if Leave Type already exists
+        By leaveTypeRow = By.xpath("//div[@role='row']//div[text()='" + leaveTypeName + "']");
+
+        if (isElementPresent(leaveTypeRow, 5)) {
+            log.info("Leave Type already exists: " + leaveTypeName);
+            return;
+        }
+
+        log.info("Leave Type not found. Creating: " + leaveTypeName);
+
+        // Add Leave Type
+        WaitHelpers.waitForClickable(addBtnLeaveType);
+        clickElement(addBtnLeaveType);
+
+        WaitHelpers.waitForVisible(leaveTypeNm);
+        enterInput(leaveTypeNm, leaveTypeName);
+
+        WaitHelpers.waitForClickable(saveBtn);
+        clickElement(saveBtn);
+
+        // Verify creation
+        WaitHelpers.waitForPresence(leaveTypeRow);
+
+        log.info("Leave Type created successfully: " + leaveTypeName);
+    }
+
+    protected boolean isElementPresent(By locator, int timeoutSeconds) {
+        try {
+            WebDriverWait wait =
+                    new WebDriverWait(driverMgr.getDriver(), Duration.ofSeconds(timeoutSeconds));
+            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
 
     public boolean assignLeave(String empNm, String leaveTy, String comments) {
         log.info("---- Assign Leave Started ----");
@@ -63,11 +163,14 @@ public class leaveMgmtPage extends basePage {
         clickElement(suggestion);
 
         // Leave type
+        WaitHelpers.waitForClickable(leaveType);
         selectDropdownValue(leaveType, leaveTy);
 
         // Pick dates using real UI calendar
-        setDateReact(fromDtToSelect, "2025-26-11");
-        setDateReact(toDtToSelect, "2025-30-11");
+        setDateReact(fromDtToSelect, "2025-12-15");
+        setDateReact(toDtToSelect, "2025-12-18");
+        //setDate(fromDtToSelect,"2025-26-11");
+        //setDate(toDtToSelect,"2025-30-11");
 
         String uiFrom = getAttributeValue(fromDtToSelect);
         String uiTo   = getAttributeValue(toDtToSelect);
@@ -147,7 +250,7 @@ public class leaveMgmtPage extends basePage {
         // Toast (optional)
         try {
             By toast = By.xpath("//p[contains(text(),'Assign') or contains(text(),'Success')]");
-            WebElement txt = WaitHelpers.waitForVisible(toast);
+            WebElement txt = WaitHelpers.waitForVisible_returnWebElement(toast);
             log.info("Toast: " + txt.getText());
         } catch(Exception ignore){}
 
@@ -179,9 +282,9 @@ public class leaveMgmtPage extends basePage {
         WaitHelpers.waitForClickable(assignLeaveTab);
         clickElement(assignLeaveTab);
 
-        WaitHelpers.checkVisibility(empName);
+        WaitHelpers.waitForVisible(empName);
         clearText(empName);
-        WaitHelpers.checkVisibility(commentTxt);
+        WaitHelpers.waitForVisible(commentTxt);
         clearText(commentTxt);
     }
 
@@ -219,7 +322,7 @@ public class leaveMgmtPage extends basePage {
 
         // set date filters only if provided (format YYYY-DD-MM)
         if(fromDt !=null && !fromDt.isBlank()) {
-            WaitHelpers.checkVisibility(fromDtToSelect);
+            WaitHelpers.waitForVisible(fromDtToSelect);
             setDateFieldReliable(fromDtToSelect,toDtToSelect,fromDt,toDt == null?"":toDt);
         }
 
@@ -233,7 +336,7 @@ public class leaveMgmtPage extends basePage {
 
         //System.out.println("--Search Employee Name--");
         if(empNameVal !=null && !empNameVal.isBlank()) {
-            WaitHelpers.checkVisibility(searchEmpNm);
+            WaitHelpers.waitForVisible(searchEmpNm);
             enterInput(searchEmpNm, empNameVal);
 
             By suggestion = By.xpath("//div[@role='option']//span[contains(normalize-space(),'" + empNameVal + "')]");
@@ -251,10 +354,25 @@ public class leaveMgmtPage extends basePage {
         scrollTo(searchBtn);
 
         // if "No Records Found" visible => return false
-        WaitHelpers.waitForPresence(tableRows);
-        List<WebElement> rows= driverMgr.getDriver().findElements(tableRows);
-        log.info("Search returned {} rows.", rows.size());
-        return rows.size() > 0;
+//        WaitHelpers.waitForPresence(tableRows);
+//        List<WebElement> rows= driverMgr.getDriver().findElements(tableRows);
+//        log.info("Search returned {} rows.", rows.size());
+//        return rows.size() > 0;
+        WaitHelpers.waitForLoaderToDisappear();
+        WebDriver driver = driverMgr.getDriver();
+
+        //Wait for either ROWS or NO RECORDS
+        new WebDriverWait(driver,Duration.ofSeconds(20)).until(d ->
+            d.findElements(tableRows).size() > 0 || d.findElements(noRecords).size() > 0
+        );
+
+        if(driver.findElements(noRecords).size() > 0){
+            log.info("No leave records found - valid state");
+            return false;
+        }
+
+        log.info("Leave records found");
+        return true;
     }
 
     // ===== Cancel leave if present (first available) =====

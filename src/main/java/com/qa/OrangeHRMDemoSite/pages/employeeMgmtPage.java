@@ -63,18 +63,46 @@ public class employeeMgmtPage extends basePage {
     public void openAddEmpForm(){
         WaitHelpers.waitForClickable(pimLink);
         clickElement(pimLink);
-        WaitHelpers.checkVisibility(addEmpBtn);
+        WaitHelpers.waitForVisible(addEmpBtn);
         clickElement(addEmpBtn);
     }
 
+    public boolean isEmployeePresent(String firstName, String lastName) {
+
+        String fullName = firstName + " " + lastName;
+
+        By searchNameInput = By.xpath("//input[@placeholder='Type for hints...']");
+        By searchBtn = By.xpath("//button[@type='submit']");
+        By employeeRow = By.xpath("//div[@class='oxd-table-cell oxd-padding-cell']//div[text()='" + fullName + "']");
+
+        enterInput(searchNameInput, fullName);
+        clickElement(searchBtn);
+
+        WaitHelpers.waitForPresence(By.xpath("//div[@class='oxd-table-body']"));
+
+        return driver().findElements(employeeRow).size() > 0;
+    }
+
+    public void createEmployee(String firstName, String lastName) {
+
+        clickElement(By.xpath("//button[normalize-space()='Add']"));
+
+        enterInput(By.name("firstName"), firstName);
+        enterInput(By.name("lastName"), lastName);
+
+        clickElement(By.xpath("//button[@type='submit']"));
+
+        WaitHelpers.waitForInvisibility(By.className("oxd-form-loader"));
+    }
+
     public void fillEmpDetails(String firstNm,String middleNm,String lastNm,String Id) throws InterruptedException {
-        WaitHelpers.checkVisibility(empFirstNm);
+        WaitHelpers.waitForVisible(empFirstNm);
         enterInput(empFirstNm,firstNm);
-        WaitHelpers.checkVisibility(empMiddleNm);
+        WaitHelpers.waitForVisible(empMiddleNm);
         enterInput(empMiddleNm,middleNm);
-        WaitHelpers.checkVisibility(empLastNm);
+        WaitHelpers.waitForVisible(empLastNm);
         enterInput(empLastNm,lastNm);
-        WaitHelpers.checkVisibility(empId);
+        WaitHelpers.waitForVisible(empId);
         enterInput(empId,Id);
         clickElement(saveBtn);
     }
@@ -87,7 +115,7 @@ public class employeeMgmtPage extends basePage {
             WaitHelpers.waitForClickable(pimLink);
             clickElement(pimLink);
             System.out.println("1");
-            WaitHelpers.checkVisibility(addEmpBtn);
+            WaitHelpers.waitForVisible(addEmpBtn);
             clickElement(addEmpBtn);
         }
         else{
@@ -104,9 +132,9 @@ public class employeeMgmtPage extends basePage {
         else {
             //System.out.println("Single data - Second if");
             clearEmpDetails();
-            WaitHelpers.checkVisibility(empFirstNm);
+            WaitHelpers.waitForVisible(empFirstNm);
             fillEmpDetails(firstNm,middleNm,lastNm,Id);
-            WaitHelpers.checkVisibility(addEmpPlusIcon);
+            WaitHelpers.waitForVisible(addEmpPlusIcon);
             clickElement(addEmpPlusIcon);
             WebElement fileInput = driverMgr.getDriver().findElement(By.cssSelector("input[type=file]"));
             String filePath = "C:\\Users\\bhoik\\Downloads\\ProfilePic1.jpg";
@@ -120,14 +148,14 @@ public class employeeMgmtPage extends basePage {
         log.info("Search Employee Details..");
         WaitHelpers.waitForPresence(pimLink);
         clickElement(pimLink);
-        WaitHelpers.checkVisibility(By.xpath("//h6[text()='PIM']"));
-        WaitHelpers.visibilityOfElement(pimLink);
+        WaitHelpers.waitForVisible(By.xpath("//h6[text()='PIM']"));
+        WaitHelpers.waitForVisible(pimLink);
         scrollTo(pimLink);
 
         WaitHelpers.waitForStaleSafe(pimLink);
         WaitHelpers.waitForClickable(empListTab);
         clickElement(empListTab);
-        WaitHelpers.checkVisibility(searchEmpName);
+        WaitHelpers.waitForVisible(searchEmpName);
         enterInput(searchEmpName,empNm);
         enterInput(searchEmpId,empId);
         WaitHelpers.waitForClickable(searchEmpName);
@@ -150,7 +178,7 @@ public class employeeMgmtPage extends basePage {
 
     public void clearEmpDetails(){
         log.info("----Clears the textbox values----");
-        WaitHelpers.checkVisibility(empFirstNm);
+        WaitHelpers.waitForVisible(empFirstNm);
         clearText(empFirstNm);
         clearText(empMiddleNm);
         clearText(empLastNm);
@@ -176,12 +204,12 @@ public class employeeMgmtPage extends basePage {
         log.info("----Add Employee Details with blank values----");
 
         Actions actions = new Actions(getDriver());
-        WaitHelpers.checkVisibility(pimLink);
+        WaitHelpers.waitForVisible(pimLink);
         clickElement(pimLink);
-        WaitHelpers.checkVisibility(addEmpBtn);
+        WaitHelpers.waitForVisible(addEmpBtn);
         clickElement(addEmpBtn);
         clearEmpDetails();
-        WaitHelpers.checkVisibility(empFirstNm);
+        WaitHelpers.waitForVisible(empFirstNm);
         clickElement(empFirstNm);
         actions.sendKeys(Keys.TAB).perform();  // tab out of field
         clickElement(empLastNm);
@@ -190,7 +218,7 @@ public class employeeMgmtPage extends basePage {
         actions.sendKeys(Keys.TAB).perform();
         clickElement(saveBtn);
 
-        WebElement msg = WaitHelpers.getElement(errorLocator); //wait.until(ExpectedConditions.presenceOfElementLocated(errorLocator));
+        WebElement msg = WaitHelpers.waitForPresence(errorLocator); //wait.until(ExpectedConditions.presenceOfElementLocated(errorLocator));
         return msg.getText();
     }
 
@@ -206,7 +234,7 @@ public class employeeMgmtPage extends basePage {
             WebElement firstrow = rows.get(0);
             WaitHelpers.waitForClickable(firstrow);
             firstrow.click();
-            WaitHelpers.checkVisibility(otherID);
+            WaitHelpers.waitForVisible(otherID);
             clearText(otherID);
             enterInput(otherID,otherIdInput);
             clickElement(updateBtn);

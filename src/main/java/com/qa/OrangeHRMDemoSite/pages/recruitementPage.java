@@ -21,8 +21,8 @@ public class recruitementPage extends basePage {
     // Add Vacancy
     WebDriver driver;
 
-    public recruitementPage(WebDriver driver){
-        this.driver = driver;
+    public recruitementPage(){
+        super();
     }
 
     private By recruitemetLink = By.xpath("//span[text()='Recruitment']");
@@ -31,7 +31,8 @@ public class recruitementPage extends basePage {
     private By vacancyName = By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]");
     private By jobTitle = By.xpath("//div[@class='oxd-select-text-input']");
     private By jobDesc = By.xpath("//textarea[@placeholder='Type description here']");
-    private By hiringMgrName = By.xpath("//input[@placeholder='Type for hints...']");
+    private By hiringMgrName = By.xpath("//label[text()='Hiring Manager']/following::input[1]");
+    //By.xpath("//input[@placeholder='Type for hints...']");
     private By noOfPositions = By.xpath("(//input[@class='oxd-input oxd-input--active'])[3]");
     private By activeSwitch = By.xpath("(//span[contains(@class,'oxd-switch-input')])[1]");
     private By publicSwitch = By.xpath("(//span[contains(@class,'oxd-switch-input')])[2]");
@@ -45,22 +46,24 @@ public class recruitementPage extends basePage {
     private By searchStatus = By.xpath("(//div[@class='oxd-select-text-input'])[4]");
     private By searchBtn = By.xpath("//button[@type='submit' and text()=' Search ']");
 
+
     public void addVacancies(String vacancyNm,String jobTtl,String desc,String hiringMgrNm,
                              String noOfPos) throws InterruptedException {
         log.info("Adding Vacancies: "+vacancyNm+" "+jobTtl+" "+desc+" "+hiringMgrNm+" "+noOfPos);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
-        WaitHelpers.checkVisibility(recruitemetLink);
+        WaitHelpers.waitForVisible(recruitemetLink);
         clickElement(recruitemetLink);
-        WaitHelpers.checkVisibility(vacanciesTab);
+        WaitHelpers.waitForVisible(vacanciesTab);
         clickElement(vacanciesTab);
-        WaitHelpers.checkVisibility(plusBtn);
+        WaitHelpers.waitForVisible(plusBtn);
         clickElement(plusBtn);
-        WaitHelpers.checkVisibility(vacancyName);
+        WaitHelpers.waitForVisible(vacancyName);
         enterInput(vacancyName,vacancyNm);
-        WaitHelpers.checkVisibility(jobTitle);
+        WaitHelpers.waitForVisible(jobTitle);
         selectDropdownValue(jobTitle,jobTtl);
         enterInput(jobDesc,desc);
+        WaitHelpers.waitForClickable(hiringMgrName);
         enterInput(hiringMgrName,hiringMgrNm);
         By suggestionOption = By.xpath("//div[@role='option']//span[contains(text(),'" + hiringMgrNm + "')]");
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -68,10 +71,11 @@ public class recruitementPage extends basePage {
         // Click the first suggestion (exact match)
         driver.findElement(suggestionOption).click();
         js.executeScript("window.scrollBy(500,2000);");
-        WaitHelpers.checkVisibility(noOfPositions);
+        WaitHelpers.waitForVisible(noOfPositions);
         enterInput(noOfPositions,noOfPos);
+
         clickElement(saveBtn);
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
     }
 
     public boolean searchForVacancies(String jobTitle,String vacancy,String hiringMgrNm,String status) throws InterruptedException {
@@ -79,17 +83,17 @@ public class recruitementPage extends basePage {
 
 //        WaitHelpers.checkVisibility(driver,recruitemetLink);
 //        clickElement(recruitemetLink);
-        WaitHelpers.checkVisibility(candidatesTab);
+        WaitHelpers.waitForVisible(candidatesTab);
         clickElement(candidatesTab);
-        WaitHelpers.checkVisibility(vacanciesTab);
+        WaitHelpers.waitForVisible(vacanciesTab);
         clickElement(vacanciesTab);
-        WaitHelpers.checkVisibility(searchJobTitle);
+        WaitHelpers.waitForVisible(searchJobTitle);
         selectDropdownValue(searchJobTitle,jobTitle);
-        WaitHelpers.checkVisibility(searchVacancy);
+        WaitHelpers.waitForVisible(searchVacancy);
         selectDropdownValue(searchVacancy,vacancy);
-        WaitHelpers.checkVisibility(searchHiringMgrNm);
+        WaitHelpers.waitForVisible(searchHiringMgrNm);
         selectDropdownValue(searchHiringMgrNm,hiringMgrNm);
-        WaitHelpers.checkVisibility(searchStatus);
+        WaitHelpers.waitForVisible(searchStatus);
         selectDropdownValue(searchStatus,status);
 
         if(jobTitle !="" || vacancy !="" || hiringMgrNm !="" || status !="") {

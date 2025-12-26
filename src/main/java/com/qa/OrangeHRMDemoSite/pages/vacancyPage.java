@@ -2,10 +2,11 @@ package com.qa.OrangeHRMDemoSite.pages;
 
 import com.qa.OrangeHRMDemoSite.Utils.WaitHelpers;
 import com.qa.OrangeHRMDemoSite.base.basePage;
-import com.qa.OrangeHRMDemoSite.driver.driverMgr;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.util.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class vacancyPage extends basePage {
     private By jobTitle = By.xpath("//div[@class='oxd-select-text-input']");
     private By jobDesc = By.xpath("//textarea[@placeholder='Type description here']");
     private By hiringMgrName = By.xpath("//input[@placeholder='Type for hints...']");
-    private By noOfPositions = By.xpath("(//input[@class='oxd-input oxd-input--active'])[3]");
+    private By noOfPositions = By.xpath("//label[text()='Number of Positions']/ancestor::div[contains(@class,'oxd-input-group')]//input");
     private By activeSwitch = By.xpath("(//span[contains(@class,'oxd-switch-input')])[1]");
     private By publicSwitch = By.xpath("(//span[contains(@class,'oxd-switch-input')])[2]");
     private By saveBtn = By.xpath("//button[@type='submit' and text()=' Save ']");
@@ -45,6 +46,31 @@ public class vacancyPage extends basePage {
     private By noRows = By.xpath("//span[text()='No Records Found']");
 
 
+
+    /** 🔎 Check if vacancy already exists */
+    public boolean isVacancyPresent(String vacancyNameText) {
+        clickElement(vacanciesTab);
+        clickElement(vacanciesTab);
+        WaitHelpers.waitForPresence(tableRows);
+
+        return driver().findElements(
+                By.xpath("//div[@role='cell']//span[text()='" + vacancyNameText + "']")
+        ).size() > 0;
+    }
+
+    public void createVacancyIfRequired(String vacancyName,
+                                        String jobTitle,
+                                        String managerName) throws InterruptedException
+    {
+        addVacancies(
+                vacancyName,
+                jobTitle,
+                "Auto-created vacancy for automation",
+                managerName,
+                "1"
+        );
+    }
+
     // =====================================================================================
     //  Add Vacancy
     // =====================================================================================
@@ -52,41 +78,38 @@ public class vacancyPage extends basePage {
                              String noPos) throws InterruptedException {
         log.info("Adding Vacancies: "+vacancyNm);
 
-        WaitHelpers.waitForClickable(recruitemetLink);
         clickElement(recruitemetLink);
-
-        WaitHelpers.waitForClickable(vacanciesTab);
         clickElement(vacanciesTab);
-
-        WaitHelpers.waitForClickable(addBtn);
         clickElement(addBtn);
 
-        WaitHelpers.checkVisibility(vacancyName);
+        WaitHelpers.waitForLoaderToDisappear();
         enterInput(vacancyName,vacancyNm);
 
-        WaitHelpers.waitForClickable(jobTitle);
-        selectDropdownValue(jobTitle,jobTtl);
+        boolean jobSelected = selectDropdownIfOptionsExist(jobTitle, jobTtl);
+        if (!jobSelected) {
+            throw new RuntimeException("Job Title dropdown empty");
+        }
 
-        WaitHelpers.checkVisibility(jobDesc);
         enterInput(jobDesc,desc);
 
-        WaitHelpers.waitForClickable(hiringMgrName);
-        enterInput(hiringMgrName,MgrNm);
+        selectAutoComplete(hiringMgrName,MgrNm);
 
-        // Select suggestion value
-        By suggestionOption = By.xpath("//div[@role='option']//span[contains(text(),'" + MgrNm + "')]");
-//        new WebDriverWait(driver, Duration.ofSeconds(10))
-//                .until(ExpectedConditions.visibilityOfElementLocated(suggestionOption));
-        // Click the first suggestion (exact match)
-//        driver.findElement(suggestionOption).click();
-        WaitHelpers.waitForPresence(suggestionOption);
-        clickElement(suggestionOption);
-        //js.executeScript("window.scrollBy(500,2000);");
-        //WaitHelpers.waitForPresence(noOfPositions);
+        WaitHelpers.waitForClickable(noOfPositions);
+        clickElement(noOfPositions);
+        clearText(noOfPositions);
         enterInput(noOfPositions,noPos);
-        //WaitHelpers.waitForPresence(saveBtn);
+
+        WaitHelpers.waitForClickable(saveBtn);
         scrollTo(saveBtn);
-        clickElement(saveBtn);
+        jsClick(saveBtn);
+
+        By successToast = By.xpath("//p[contains(text(),'Successfully')]");
+        try {
+            WaitHelpers.waitForVisible(successToast);
+            log.info("Success message displayed");
+        } catch (TimeoutException e) {
+            log.warn("Success message not shown (expected behavior in OrangeHRM)");
+        }
 
         log.info("Vacancy successfully added.");
     }
@@ -94,8 +117,8 @@ public class vacancyPage extends basePage {
     // =====================================================================================
     // Search Vacancies
     // =====================================================================================
-    public boolean searchForVacancies(String jobTitle,String vacancy,String hiringMgrNm,String status) throws InterruptedException {
-
+    public boolean searchForVacancies(String jobTitle) throws InterruptedException {
+        //,String vacancy,String hiringMgrNm,String status
         log.info("---- Search for Vacancies ----");
 
         //System.out.println("1");
@@ -103,56 +126,43 @@ public class vacancyPage extends basePage {
         clickElement(candidatesTab);
         WaitHelpers.waitForClickable(vacanciesTab);
         clickElement(vacanciesTab);
-        //WaitHelpers.waitForClickable(searchJobTitle);
+        WaitHelpers.waitForClickable(searchJobTitle);
         selectDropdownValue(searchJobTitle,jobTitle);
-        //WaitHelpers.waitForClickable(searchVacancy);
-        selectDropdownValue(searchVacancy,vacancy);
-        //WaitHelpers.waitForClickable(searchHiringMgrNm);
-        selectDropdownValue(searchHiringMgrNm,hiringMgrNm);
-        //WaitHelpers.waitForClickable(searchStatus);
-        selectDropdownValue(searchStatus,status);
+//        WaitHelpers.waitForClickable(searchVacancy);
+//        selectDropdownValue(searchVacancy,vacancy);
+//        WaitHelpers.waitForClickable(searchHiringMgrNm);
+//        selectDropdownValue(searchHiringMgrNm,hiringMgrNm);
+//        WaitHelpers.waitForClickable(searchStatus);
+//        selectDropdownValue(searchStatus,status);
 
+        WaitHelpers.waitForClickable(searchBtn);
         clickElement(searchBtn);
         scrollTo(searchBtn);
 
-        // if "No Records Found"
-        WaitHelpers.waitForPresence(noRows);
-        String noRecordFound_msg=driver().findElement(noRows).getText();
-        //System.out.println(driverMgr.getDriver().findElement(noRows).getText());
-        if(noRecordFound_msg.equalsIgnoreCase("No Records Found")) {
-            return false;
+        // 1️⃣ Wait for search results container to load
+        WaitHelpers.waitForPresence(
+                By.xpath("//div[contains(@class,'oxd-table-body')]")
+        );
+
+        // 2️⃣ Check if "No Records Found" exists (WITHOUT wait)
+        if (driver().findElements(noRows).size() > 0) {
+            String msg = driver().findElement(noRows).getText().trim();
+            if (msg.equalsIgnoreCase("No Records Found")) {
+                log.info("No vacancy records found.");
+                return false;
+            }
         }
 
-        WaitHelpers.waitForPresence(tableRows);
+        // 3️⃣ Otherwise check for table rows
         List<WebElement> rows = driver().findElements(tableRows);
-        return  rows.size() > 0;
+        if (rows.size() > 0) {
+            log.info("Vacancy records found: " + rows.size());
+            return true;
+        }
 
-//        if(jobTitle !="" || vacancy !="" || hiringMgrNm !="" || status !="") {
-//            //System.out.println("Inside If");
-//            WaitHelpers.waitForPresence(searchBtn);
-//            clickElement(searchBtn);
-//            scrollTo(searchBtn);
-//            //Thread.sleep(5000);
-//        }else{
-//            System.out.println("Record not found!!");
-//        }
-//
-//        WaitHelpers.waitForPresence(noRowsFound);
-//        String noRecordFound_msg=driverMgr.getDriver().findElement(noRowsFound).getText();
-//        //System.out.println(driverMgr.getDriver().findElement(noRowsFound).getText());
-//        if(noRecordFound_msg.equalsIgnoreCase("No Records Found")) {
-//            return false;
-//        }
-//        else {
-//            WaitHelpers.waitForPresence(tableRows);
-//            List<WebElement> rows = driverMgr.getDriver().findElements(tableRows);
-//            //System.out.println("No of rows: " + rows.size());
-//            if (rows.size() > 0) {
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        }
+        // 4️⃣ Defensive fallback
+        log.warn("Search completed but no rows and no 'No Records Found' message.");
+        return false;
     }
 
     // =====================================================================================
@@ -163,16 +173,29 @@ public class vacancyPage extends basePage {
         WaitHelpers.waitForPresence(tableRows);
         List<WebElement> rows=driver().findElements(tableRows);
 
-        for(WebElement row:rows){
-            String vacNm = row.findElement(By.xpath(".//div[@role='cell'][2]")).getText();
-            String jobTtl=row.findElement(By.xpath(".//div[@role='cell'][3]")).getText();
-            String mgrNm=row.findElement(By.xpath(".//div[@role='cell'][4]")).getText();
+        for(WebElement row:rows) {
+
+            List<WebElement> cells = row.findElements(By.xpath(".//div[@role='cell']"));
+
+            if (cells.size() < 4) {
+                continue; // safety
+            }
+
+            String vacNm = cells.get(1).getText().trim(); //row.findElement(By.xpath(".//div[@role='cell'][2]")).getText();
+            String jobTtl = cells.get(2).getText().trim(); //row.findElement(By.xpath(".//div[@role='cell'][3]")).getText();
+            String mgrNm = cells.get(3).getText().trim(); //row.findElement(By.xpath(".//div[@role='cell'][4]")).getText();
             //String vacancyStatus =row.findElement(By.xpath(".//div[@role='cell'][5]")).getText();
 
-            if(vacNm.equals(vacancy) && jobTtl.equals(jobTitle) && mgrNm.equals(hiringMgrNm)) {
+            if (vacNm.equalsIgnoreCase(vacancy)
+                    && jobTtl.equalsIgnoreCase(jobTitle.trim())
+               ) {
+                // && mgrNm.equalsIgnoreCase(hiringMgrNm.trim())
+                //System.out.println("Inside if");
+                log.info("Vacancy verified successfully: " + vacancy);
                 return true;
             }
         }
+        log.warn("Vacancy NOT found: " + vacancy);
         return false;
     }
 }

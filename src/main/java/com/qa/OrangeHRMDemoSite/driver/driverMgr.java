@@ -13,45 +13,69 @@ import java.time.Duration;
 
 public class driverMgr {
 
+    private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+
     public static WebDriver driver;
+
     public static WebDriver getDriver() {
+        WebDriver driver =tlDriver.get();
+        if(driver == null) {
+            throw new IllegalStateException("Webdriver is NULL.Did you forget initDriver?");
+        }
         return driver;
     }
 
     public static void setDriver(WebDriver driver) {
-        driverMgr.driver = driver;
+        if(driverMgr.driver == null){
+            throw new IllegalArgumentException("Driver must be set");
+        }
+        tlDriver.set(driver);
     }
+
     // When we want to start the browser
-    public static void init() {
-        String browserNm = PropertiesReader.readKey("browser");
-        browserNm = browserNm.toLowerCase();
+    public static WebDriver init() {
+
+        String browserNm = PropertiesReader.readKey("browser").toLowerCase();
 
         switch (browserNm) {
-            case "edge":
+
+            case "chrome": {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--start-maximized");
+                chromeOptions.addArguments("--remote-allow-origins=*");
+                chromeOptions.addArguments("--disable-notifications");
+                driver = new ChromeDriver(chromeOptions);
+                break;
+            }
+
+            case "edge": {
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.addArguments("--start-maximized");
                 edgeOptions.addArguments("--guest");
                 driver = new EdgeDriver(edgeOptions);
                 break;
-            case "chrome":
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--start-maximized");
-                driver = new ChromeDriver(chromeOptions);
-                break;
-            case "firefox":
+            }
+
+            case "firefox": {
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--start-maximized");
                 driver = new FirefoxDriver(firefoxOptions);
+                driver.manage().window().maximize(); // Firefox needs manual maximize
                 break;
+            }
+
             default:
-                System.out.println("Not browser Supported!!!");
-
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-                driver.get(PropertiesReader.readKey("url")); // ✅ Launch app here
-                System.out.println("✅ Driver initialized for browser: " + browserNm);
-                System.out.println("🌐 Opened URL: " + PropertiesReader.readKey("url"));
-
+                throw new RuntimeException(
+                        "Unsupported browser: " + browserNm +
+                                ". Supported: chrome | edge | firefox"
+                );
         }
+
+        // ✅ Common configuration (for ALL browsers)
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+
+        System.out.println("✅ Driver initialized for browser: " + browserNm);
+        return driver;
     }
 
     // When we want to close the browser
@@ -60,5 +84,9 @@ public class driverMgr {
             driver.quit();
             driver = null;
         }
+    }
+
+    public static void unload(){
+        tlDriver.remove();
     }
 }

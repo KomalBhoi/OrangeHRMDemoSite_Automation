@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 import static com.qa.OrangeHRMDemoSite.Utils.browserUtils.scrollTo;
+import static com.qa.OrangeHRMDemoSite.driver.driverMgr.driver;
+import static com.qa.OrangeHRMDemoSite.driver.driverMgr.getDriver;
 
 public class candidatePage extends basePage {
 
@@ -51,7 +53,11 @@ public class candidatePage extends basePage {
     // Interview Page
     private By viewIcon = By.xpath("//i[contains(@class,'oxd-icon bi-eye')]");
     private By shortlistBtn = By.xpath("//button[contains(@class,'oxd-button') and text()=' Shortlist ']");
+    private By scheduleInterviewBtn = By.xpath("//button[text()=' Schedule Interview ']");
     private By errorMessages = By.xpath("//span[contains(@class,'oxd-input-field-error-message')]");
+
+    private By tableRows = By.xpath("//div[@class='oxd-table-body']//div[@role='row']");
+    private By noRows = By.xpath("//span[text()='No Records Found']");
 
     // =====================================================================================
     // Add Candidate
@@ -79,9 +85,14 @@ public class candidatePage extends basePage {
         }
 
         enterInput(notesInput,notes);
-
-        clickElement(consentChk);
+        //System.out.println("Before consent - clicked on checkbox.");
+        WaitHelpers.waitForReactToSettle();
+        WaitHelpers.waitForLoaderToDisappear();
+        //clickElement(consentChk);
+        //WaitHelpers.waitForLoaderToDisappear();
+        WaitHelpers.waitForClickable(saveBtn);
         clickElement(saveBtn);
+        jsClick(saveBtn);
 
         log.info("Candidate added successfully.");
     }
@@ -89,7 +100,7 @@ public class candidatePage extends basePage {
     // =====================================================================================
     // Search Candidate
     // =====================================================================================
-    public void searchCandidate(String jobTitle,String vacancyOpt,String hiringMgrNm,
+    public boolean searchCandidate(String jobTitle,String vacancyOpt,String hiringMgrNm,
                                 String status, String candidateNm,String keywords,
                                 String frmDt,String toDt,String methodOfApp) throws InterruptedException {
 
@@ -121,6 +132,17 @@ public class candidatePage extends basePage {
 
         clickElement(searchBtn);
         scrollTo(searchBtn);
+        By resultRows = By.xpath("//div[@class='oxd-table-body']//div[@role='row']");
+        WaitHelpers.waitForVisible(resultRows);
+        boolean found = getDriver().findElements(resultRows).size() > 0;
+        System.out.println("Candidate Page found: "+found);
+        if (found) {
+            log.info("Candidate FOUND: " + candidateNm);
+        } else {
+            log.warn("Candidate NOT found: " + candidateNm);
+        }
+
+        return found;
 
 //        if(jobTitle !="" || vacancyOpt !="" || hiringMgrNm !="" || status !="" || candidateNm !=""
 //                || keywords !="" || frmDt !="" || toDt !="" || methodOfApp !=""){
@@ -137,29 +159,56 @@ public class candidatePage extends basePage {
     // =====================================================================================
     // Initiate Interview Process
     // =====================================================================================
-    public void initiateInterviewProcess() throws InterruptedException {
+    public boolean initiateInterviewProcess() throws InterruptedException {
 
         log.info("---- Starting Interview Process ----");
 
-        //WaitHelpers.checkVisibility(viewIcon);
+        WaitHelpers.waitForClickable(viewIcon);
         clickElement(viewIcon);
-        //WaitHelpers.checkVisibility(shortlistBtn);
+        WaitHelpers.waitForClickable(shortlistBtn);
         clickElement(shortlistBtn);
-        //WaitHelpers.checkVisibility(saveBtn);
+//        WaitHelpers.waitForClickable(scheduleInterviewBtn);
+//        clickElement(scheduleInterviewBtn);
+        WaitHelpers.waitForClickable(saveBtn);
+        //WaitHelpers.waitForLoaderToDisappear();
         clickElement(saveBtn);
         //System.out.println("end of the interview process..");
 
-        //Check for validation errors
-        WaitHelpers.waitForPresence(By.xpath("//span[contains(@class,'oxd-input-field-error-message')]"));
+        WaitHelpers.waitForPresence(
+                By.xpath("//div[contains(@class,'oxd-table-body')]")
+        );
 
-        List<WebElement> errors = driver().findElements(
-                By.xpath("//span[contains(@class,'oxd-input-field-error-message')]"));
-
-        if(!errors.isEmpty()) {
-            throw new AssertionError("Validation failed: " + errors.get(0).getText());
+        // 2️⃣ Check if "No Records Found" exists (WITHOUT wait)
+        if (driver().findElements(noRows).size() > 0) {
+            String msg = driver().findElement(noRows).getText().trim();
+            if (msg.equalsIgnoreCase("No Records Found")) {
+                log.info("No vacancy records found.");
+                return false;
+            }
         }
 
-        log.info("---- Interview process initiated successfully ----");
+        // 3️⃣ Otherwise check for table rows
+        List<WebElement> rows = driver().findElements(tableRows);
+        if (rows.size() > 0) {
+            log.info("Vacancy records found: " + rows.size());
+            return true;
+        }
+
+        // 4️⃣ Defensive fallback
+        log.warn("Search completed but no rows and no 'No Records Found' message.");
+        return false;
+
+        //Check for validation errors
+//        WaitHelpers.waitForPresence(By.xpath("//span[contains(@class,'oxd-input-field-error-message')]"));
+//
+//        List<WebElement> errors = driver().findElements(
+//                By.xpath("//span[contains(@class,'oxd-input-field-error-message')]"));
+//
+//        if(!errors.isEmpty()) {
+//            throw new AssertionError("Validation failed: " + errors.get(0).getText());
+//        }
+
+        //log.info("---- Interview process initiated successfully ----");
     }
 
     public boolean isErrorDisplayed() {

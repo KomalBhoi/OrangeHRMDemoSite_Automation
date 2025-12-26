@@ -33,7 +33,7 @@ public class loginPage extends basePage {
        log.info("Login with valid credentials: "+user+" "+pwd);
 
        openOrangeHRMUrl();
-       WaitHelpers.visibilityOfElement(username);
+       WaitHelpers.waitForVisible(username);
 
        enterInput(username,user);
        enterInput(password,pwd);
@@ -47,7 +47,7 @@ public class loginPage extends basePage {
        log.info("Login with invalid credentials: "+user);
 
        openOrangeHRMUrl();
-       WaitHelpers.visibilityOfElement(username);
+       WaitHelpers.waitForVisible(username);
        enterInput(username,user);
        enterInput(password,pwd);
        clickElement(loginBtn);
@@ -63,7 +63,7 @@ public class loginPage extends basePage {
        log.info("Login with empty credentials.");
 
        openOrangeHRMUrl();   // comes from basePage
-       WaitHelpers.visibilityOfElement(username);
+       WaitHelpers.waitForVisible(username);
 
        clearText(username);
        clearText(password);
