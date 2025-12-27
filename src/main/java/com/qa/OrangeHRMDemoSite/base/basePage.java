@@ -256,4 +256,20 @@ public class basePage {
         WaitHelpers.sleep(300);
     }
 
+    protected boolean isElementPresent(By locator) {
+        try {
+            return driver().findElements(locator).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    protected void confirmActionIfPopup() {
+        By confirmBtn =
+                By.xpath("//button[normalize-space()='Ok' or normalize-space()='Confirm']");
+        if (isElementPresent(confirmBtn)) {
+            clickElement(confirmBtn);
+        }
+    }
+
 }

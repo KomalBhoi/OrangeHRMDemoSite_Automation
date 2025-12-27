@@ -3198,3 +3198,15 @@ Session ID: 8c771574db4951e3bade62277a1d3022
 2025-12-26 19:55:43 INFO  candidatePage:164 - ---- Starting Interview Process ----
 2025-12-26 19:55:49 INFO  candidatePage:193 - Vacancy records found: 3
 2025-12-26 19:55:49 INFO  candidatePage:99 - ---- Interview process initiated successfully ----
+2025-12-27 16:21:50 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 16:22:13 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.17'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57548}, goog:processID: 25684, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57548/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0df113e1fac17e105885c8047b4f800c
+2025-12-27 16:22:13 INFO  candidatePage:107 - Searching candidate: Jassi
+2025-12-27 16:22:24 INFO  candidatePage:140 - Candidate FOUND: Jassi
+2025-12-27 16:22:24 INFO  candidatePage:164 - ---- Starting Interview Process ----
+2025-12-27 16:22:26 WARN  candidatePage:183 - No actionable interview buttons found. Candidate already processed. 
+2025-12-27 16:22:26 ERROR candidatePage:101 - No rows found for interview process initiation..

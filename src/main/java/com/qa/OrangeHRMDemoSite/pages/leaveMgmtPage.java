@@ -399,8 +399,8 @@ public class leaveMgmtPage extends basePage {
         }
     }
 
-    private boolean isElementPresent(By locator){
-        return driver().findElements(locator).size() > 0;
-    }
+//    private boolean isElementPresent(By locator){
+//        return driver().findElements(locator).size() > 0;
+//    }
 
 }

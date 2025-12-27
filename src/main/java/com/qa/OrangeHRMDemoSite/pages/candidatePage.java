@@ -52,8 +52,8 @@ public class candidatePage extends basePage {
 
     // Interview Page
     private By viewIcon = By.xpath("//i[contains(@class,'oxd-icon bi-eye')]");
-    private By shortlistBtn = By.xpath("//button[contains(@class,'oxd-button') and text()=' Shortlist ']");
-    private By scheduleInterviewBtn = By.xpath("//button[text()=' Schedule Interview ']");
+    private By shortlistBtn =  By.xpath("//button[.//text()[normalize-space()='Shortlist']]"); //By.xpath("//button[contains(@class,'oxd-button') and text()=' Shortlist ']");
+    private By scheduleInterviewBtn = By.xpath("//button[.//text()[normalize-space()='Schedule Interview']]");
     private By errorMessages = By.xpath("//span[contains(@class,'oxd-input-field-error-message')]");
 
     private By tableRows = By.xpath("//div[@class='oxd-table-body']//div[@role='row']");
@@ -165,14 +165,24 @@ public class candidatePage extends basePage {
 
         WaitHelpers.waitForClickable(viewIcon);
         clickElement(viewIcon);
-        WaitHelpers.waitForClickable(shortlistBtn);
-        clickElement(shortlistBtn);
+
+        WaitHelpers.waitForLoaderToDisappear();
+
+        if(isElementPresent(shortlistBtn)) {
+            log.info("Candidate not shortlisted. Clicking Shortlist..");
+            //WaitHelpers.waitForClickable(shortlistBtn);
+            clickElement(shortlistBtn);
+            confirmActionIfPopup();
+        }else if(isElementPresent(scheduleInterviewBtn)) {
 //        WaitHelpers.waitForClickable(scheduleInterviewBtn);
-//        clickElement(scheduleInterviewBtn);
-        WaitHelpers.waitForClickable(saveBtn);
-        //WaitHelpers.waitForLoaderToDisappear();
-        clickElement(saveBtn);
-        //System.out.println("end of the interview process..");
+         log.info("Candidate already shortlisted. Proceeding..");
+         clickElement(scheduleInterviewBtn);
+         WaitHelpers.waitForClickable(saveBtn);
+         clickElement(saveBtn);
+        }else{
+            log.warn("No actionable interview buttons found. Candidate already processed. ");
+            return false;
+        }
 
         WaitHelpers.waitForPresence(
                 By.xpath("//div[contains(@class,'oxd-table-body')]")
@@ -212,9 +222,6 @@ public class candidatePage extends basePage {
     }
 
     public boolean isErrorDisplayed() {
-//        List<WebElement> errors = driver.findElements(
-//                By.xpath("//span[contains(@class,'oxd-input-field-error-message')]"));
-//        return !errors.isEmpty();
         return driver().findElements(errorMessages).size()>0;
     }
 }
