@@ -51,7 +51,7 @@ public class employeeMgmtPage extends basePage {
 
     //Edit employee details
     private By otherID =By.xpath("(//input[contains(@class,'oxd-input')])[6]");
-    private By updateBtn =By.xpath("(//button[text()=' Save '])[1]");
+    private By updateBtn =By.xpath("(//button[.//text()[normalize-space()='Save']])[1]");
 
     //Delete employee details
     private By deleteIcon = By.xpath("//button//i[contains(@class,'bi-trash')]");
@@ -75,7 +75,11 @@ public class employeeMgmtPage extends basePage {
         By searchBtn = By.xpath("//button[@type='submit']");
         By employeeRow = By.xpath("//div[@class='oxd-table-cell oxd-padding-cell']//div[text()='" + fullName + "']");
 
+        WaitHelpers.waitForLoaderToDisappear();
+        WaitHelpers.waitForVisible(searchNameInput);
         enterInput(searchNameInput, fullName);
+        WaitHelpers.waitForLoaderToDisappear();
+        WaitHelpers.waitForClickable(searchBtn);
         clickElement(searchBtn);
 
         WaitHelpers.waitForPresence(By.xpath("//div[@class='oxd-table-body']"));
@@ -92,7 +96,7 @@ public class employeeMgmtPage extends basePage {
 
         clickElement(By.xpath("//button[@type='submit']"));
 
-        WaitHelpers.waitForInvisibility(By.className("oxd-form-loader"));
+        //WaitHelpers.waitForInvisibility(By.className("oxd-form-loader"));
     }
 
     public void fillEmpDetails(String firstNm,String middleNm,String lastNm,String Id) throws InterruptedException {
@@ -111,10 +115,10 @@ public class employeeMgmtPage extends basePage {
         log.info("Adding Employee: "+firstNm + " "+ lastNm + "| ID: "+Id);
 
         if(needNavigation){
-            System.out.println("if");
+            //System.out.println("if");
             WaitHelpers.waitForClickable(pimLink);
             clickElement(pimLink);
-            System.out.println("1");
+            //System.out.println("1");
             WaitHelpers.waitForVisible(addEmpBtn);
             clickElement(addEmpBtn);
         }
@@ -223,8 +227,10 @@ public class employeeMgmtPage extends basePage {
     }
 
     public String editEmpDetails(String otherIdInput) throws InterruptedException {
+
         log.info("----Edit employee details----");
 
+        WaitHelpers.waitForLoaderToDisappear();
         WaitHelpers.waitForPresence(tableRows);
         List<WebElement> rows=driverMgr.getDriver().findElements(tableRows);
         //System.out.println("Total Rows1: "+rows.size());
@@ -232,11 +238,16 @@ public class employeeMgmtPage extends basePage {
             //System.out.println("inside if");
 
             WebElement firstrow = rows.get(0);
+            WaitHelpers.waitForLoaderToDisappear();
             WaitHelpers.waitForClickable(firstrow);
             firstrow.click();
+            WaitHelpers.waitForLoaderToDisappear();
             WaitHelpers.waitForVisible(otherID);
             clearText(otherID);
             enterInput(otherID,otherIdInput);
+
+            WaitHelpers.waitForLoaderToDisappear();
+            WaitHelpers.waitForClickable(updateBtn);
             clickElement(updateBtn);
             return "Updated";
         }else{

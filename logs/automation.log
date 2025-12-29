@@ -3210,3 +3210,383 @@ Session ID: 0df113e1fac17e105885c8047b4f800c
 2025-12-27 16:22:24 INFO  candidatePage:164 - ---- Starting Interview Process ----
 2025-12-27 16:22:26 WARN  candidatePage:183 - No actionable interview buttons found. Candidate already processed. 
 2025-12-27 16:22:26 ERROR candidatePage:101 - No rows found for interview process initiation..
+2025-12-27 18:00:49 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:00:52 INFO  employeeMgmtPage:111 - Adding Employee: Swanandi Bhelkhande| ID: 6581
+2025-12-27 18:01:02 INFO  employeeMgmtPage:180 - ----Clears the textbox values----
+2025-12-27 18:01:08 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-27 18:01:27 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:01:30 INFO  employeeMgmtPage:204 - ----Add Employee Details with blank values----
+2025-12-27 18:01:34 INFO  employeeMgmtPage:180 - ----Clears the textbox values----
+2025-12-27 18:01:42 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:01:48 INFO  employeeMgmtPage:111 - Adding Employee: Kinjal Shah| ID: 1001
+2025-12-27 18:01:52 INFO  employeeMgmtPage:111 - Adding Employee: Raj Patel| ID: 1002
+2025-12-27 18:01:56 INFO  employeeMgmtPage:111 - Adding Employee: Asha Mehta| ID: 1003
+2025-12-27 18:02:02 INFO  employeeMgmtPage:111 - Adding Employee: Vivek Joshi| ID: 1004
+2025-12-27 18:02:07 INFO  employeeMgmtPage:111 - Adding Employee: Rina Desai| ID: 1005
+2025-12-27 18:02:12 INFO  employeeMgmtPage:111 - Adding Employee: Arjun Rana| ID: 1006
+2025-12-27 18:02:18 INFO  employeeMgmtPage:111 - Adding Employee: Pooja Trivedi| ID: 1007
+2025-12-27 18:02:22 INFO  employeeMgmtPage:111 - Adding Employee: Kiran Nair| ID: 1008
+2025-12-27 18:02:26 INFO  employeeMgmtPage:111 - Adding Employee: Priya Bhatt| ID: 1009
+2025-12-27 18:02:30 INFO  employeeMgmtPage:111 - Adding Employee: Hemal Chauhan| ID: 1010
+2025-12-27 18:02:34 INFO  employeeMgmtPage:111 - Adding Employee: Sneha Gohil| ID: 1011
+2025-12-27 18:02:39 INFO  employeeMgmtPage:111 - Adding Employee: Amit Pandya| ID: 1012
+2025-12-27 18:02:44 INFO  employeeMgmtPage:111 - Adding Employee: Dhruv Parmar| ID: 1013
+2025-12-27 18:02:49 INFO  employeeMgmtPage:111 - Adding Employee: Neha Kapadia| ID: 1014
+2025-12-27 18:02:56 INFO  employeeMgmtPage:111 - Adding Employee: Komal Thakkar| ID: 1015
+2025-12-27 18:03:06 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:03:09 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-27 18:03:17 INFO  employeeMgmtPage:226 - ----Edit employee details----
+2025-12-27 18:03:27 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:03:28 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-27 18:03:35 INFO  employeeMgmtPage:250 - ----Delete employee details----
+2025-12-27 18:03:40 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:03:42 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-27 18:03:50 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-27 18:03:52 INFO  leaveMgmtPage:154 - ---- Assign Leave Started ----
+2025-12-27 18:03:59 INFO  leaveMgmtPage:178 - UI shows dates: FROM=2025-12-15 TO=2025-12-18
+2025-12-27 18:03:59 INFO  leaveMgmtPage:197 - Partial Days visible ? selecting 'None'
+2025-12-27 18:04:00 INFO  leaveMgmtPage:209 - Duration visible ? selecting 'Full Day'
+2025-12-27 18:05:19 INFO  leaveMgmtPage:238 - Assign clicked.
+2025-12-27 18:05:39 INFO  leaveMgmtPage:257 - ---- Assign Leave Completed ----
+2025-12-27 18:05:41 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:05:42 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-27 18:05:49 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-27 18:05:49 INFO  leaveMgmtPage:314 - Search assigned leave: status=Scheduled, type=, emp=, subUnit=
+2025-12-27 18:05:51 INFO  leaveMgmtPage:370 - No leave records found - valid state
+2025-12-27 18:05:54 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:05:55 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-27 18:06:02 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-27 18:06:02 INFO  leaveMgmtPage:314 - Search assigned leave: status=Scheduled, type=, emp=, subUnit=
+2025-12-27 18:06:04 INFO  leaveMgmtPage:370 - No leave records found - valid state
+2025-12-27 18:06:04 INFO  leaveMgmtPage:380 - Attempting to cancel leave if present...
+2025-12-27 18:06:04 INFO  leaveMgmtPage:398 - No cancel link found.
+2025-12-27 18:06:09 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:06:19 INFO  loginPage:47 - Login with invalid credentials: Adminabc
+2025-12-27 18:06:27 INFO  loginPage:63 - Login with empty credentials.
+2025-12-27 18:06:34 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:06:56 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63232}, goog:processID: 4300, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63232/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e5b078199a2506d10a10d524e8c3b4bf
+2025-12-27 18:06:56 INFO  recruitementPage:79 - Adding Vacancies: QA Lead
+2025-12-27 18:07:25 WARN  recruitementPage:111 - Success message not shown (expected behavior in OrangeHRM)
+2025-12-27 18:07:25 INFO  recruitementPage:114 - Vacancy successfully added.
+2025-12-27 18:07:25 INFO  recruitementPage:122 - ---- Search for Vacancies ----
+2025-12-27 18:07:27 INFO  recruitementPage:159 - Vacancy records found: 1
+2025-12-27 18:07:27 INFO  recruitementPage:194 - Vacancy verified successfully: QA Lead
+2025-12-27 18:07:30 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:07:52 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51527}, goog:processID: 14056, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51527/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 91bb108c816a44c67c4b941e6bba00e2
+2025-12-27 18:07:52 INFO  candidatePage:67 - Adding Candidates: Jassi||Jaiswar
+2025-12-27 18:07:59 INFO  candidatePage:97 - Candidate added successfully.
+2025-12-27 18:08:04 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-27 18:08:28 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62327}, goog:processID: 9536, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62327/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 839c07cd61c12de29eeeaebf19bc62f1
+2025-12-27 18:08:28 INFO  candidatePage:107 - Searching candidate: Jassi
+2025-12-27 18:08:35 INFO  candidatePage:140 - Candidate FOUND: Jassi
+2025-12-27 18:08:35 INFO  candidatePage:164 - ---- Starting Interview Process ----
+2025-12-27 18:08:36 WARN  candidatePage:183 - No actionable interview buttons found. Candidate already processed. 
+2025-12-27 18:08:36 ERROR candidatePage:101 - No rows found for interview process initiation..
+2025-12-28 19:54:04 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 19:54:08 INFO  employeeMgmtPage:111 - Adding Employee: Swanandi Bhelkhande| ID: 6581
+2025-12-28 19:54:18 INFO  employeeMgmtPage:180 - ----Clears the textbox values----
+2025-12-28 19:54:29 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-28 19:54:53 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 19:54:56 INFO  employeeMgmtPage:204 - ----Add Employee Details with blank values----
+2025-12-28 19:55:00 INFO  employeeMgmtPage:180 - ----Clears the textbox values----
+2025-12-28 19:55:09 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 19:55:14 INFO  employeeMgmtPage:111 - Adding Employee: Kinjal Shah| ID: 1001
+2025-12-28 19:55:20 INFO  employeeMgmtPage:111 - Adding Employee: Raj Patel| ID: 1002
+2025-12-28 19:55:24 INFO  employeeMgmtPage:111 - Adding Employee: Asha Mehta| ID: 1003
+2025-12-28 19:55:28 INFO  employeeMgmtPage:111 - Adding Employee: Vivek Joshi| ID: 1004
+2025-12-28 19:55:32 INFO  employeeMgmtPage:111 - Adding Employee: Rina Desai| ID: 1005
+2025-12-28 19:55:38 INFO  employeeMgmtPage:111 - Adding Employee: Arjun Rana| ID: 1006
+2025-12-28 19:55:43 INFO  employeeMgmtPage:111 - Adding Employee: Pooja Trivedi| ID: 1007
+2025-12-28 19:55:50 INFO  employeeMgmtPage:111 - Adding Employee: Kiran Nair| ID: 1008
+2025-12-28 19:55:54 INFO  employeeMgmtPage:111 - Adding Employee: Priya Bhatt| ID: 1009
+2025-12-28 19:55:58 INFO  employeeMgmtPage:111 - Adding Employee: Hemal Chauhan| ID: 1010
+2025-12-28 19:56:02 INFO  employeeMgmtPage:111 - Adding Employee: Sneha Gohil| ID: 1011
+2025-12-28 19:56:06 INFO  employeeMgmtPage:111 - Adding Employee: Amit Pandya| ID: 1012
+2025-12-28 19:56:12 INFO  employeeMgmtPage:111 - Adding Employee: Dhruv Parmar| ID: 1013
+2025-12-28 19:56:17 INFO  employeeMgmtPage:111 - Adding Employee: Neha Kapadia| ID: 1014
+2025-12-28 19:56:24 INFO  employeeMgmtPage:111 - Adding Employee: Komal Thakkar| ID: 1015
+2025-12-28 19:56:39 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 19:56:42 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-28 19:56:56 INFO  employeeMgmtPage:226 - ----Edit employee details----
+2025-12-28 19:57:15 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 19:57:18 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-28 19:57:37 INFO  employeeMgmtPage:250 - ----Delete employee details----
+2025-12-28 19:57:53 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 19:57:57 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-28 19:58:06 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-28 19:58:10 INFO  leaveMgmtPage:154 - ---- Assign Leave Started ----
+2025-12-28 19:58:16 INFO  leaveMgmtPage:178 - UI shows dates: FROM=2025-12-15 TO=2025-12-18
+2025-12-28 19:58:16 INFO  leaveMgmtPage:197 - Partial Days visible ? selecting 'None'
+2025-12-28 19:58:18 INFO  leaveMgmtPage:209 - Duration visible ? selecting 'Full Day'
+2025-12-28 19:59:36 INFO  leaveMgmtPage:238 - Assign clicked.
+2025-12-28 19:59:56 INFO  leaveMgmtPage:257 - ---- Assign Leave Completed ----
+2025-12-28 19:59:59 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:00:00 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-28 20:00:07 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-28 20:00:07 INFO  leaveMgmtPage:314 - Search assigned leave: status=Scheduled, type=, emp=, subUnit=
+2025-12-28 20:00:10 INFO  leaveMgmtPage:370 - No leave records found - valid state
+2025-12-28 20:00:12 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:00:13 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-28 20:00:20 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-28 20:00:20 INFO  leaveMgmtPage:314 - Search assigned leave: status=Scheduled, type=, emp=, subUnit=
+2025-12-28 20:00:22 INFO  leaveMgmtPage:370 - No leave records found - valid state
+2025-12-28 20:00:22 INFO  leaveMgmtPage:380 - Attempting to cancel leave if present...
+2025-12-28 20:00:23 INFO  leaveMgmtPage:398 - No cancel link found.
+2025-12-28 20:00:28 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:00:39 INFO  loginPage:47 - Login with invalid credentials: Adminabc
+2025-12-28 20:00:46 INFO  loginPage:63 - Login with empty credentials.
+2025-12-28 20:00:52 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:01:14 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50990}, goog:processID: 33500, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50990/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 826f78b92641ef56c69c03e54278b86f
+2025-12-28 20:01:14 INFO  recruitementPage:79 - Adding Vacancies: QA Lead
+2025-12-28 20:01:44 WARN  recruitementPage:111 - Success message not shown (expected behavior in OrangeHRM)
+2025-12-28 20:01:44 INFO  recruitementPage:114 - Vacancy successfully added.
+2025-12-28 20:01:44 INFO  recruitementPage:122 - ---- Search for Vacancies ----
+2025-12-28 20:01:47 INFO  recruitementPage:159 - Vacancy records found: 1
+2025-12-28 20:01:47 INFO  recruitementPage:194 - Vacancy verified successfully: QA Lead
+2025-12-28 20:01:50 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:02:11 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57529}, goog:processID: 7816, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57529/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8d17225b16f883600eb448f3a5863364
+2025-12-28 20:02:11 INFO  candidatePage:67 - Adding Candidates: Jassi||Jaiswar
+2025-12-28 20:02:22 INFO  candidatePage:97 - Candidate added successfully.
+2025-12-28 20:02:26 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:02:48 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54138}, goog:processID: 14704, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54138/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c862a1c43f14536bc3d3fff9c0171cd6
+2025-12-28 20:02:48 INFO  candidatePage:107 - Searching candidate: Jassi
+2025-12-28 20:02:56 INFO  candidatePage:140 - Candidate FOUND: Jassi
+2025-12-28 20:02:56 INFO  candidatePage:164 - ---- Starting Interview Process ----
+2025-12-28 20:02:56 WARN  candidatePage:183 - No actionable interview buttons found. Candidate already processed. 
+2025-12-28 20:02:56 ERROR candidatePage:101 - No rows found for interview process initiation..
+2025-12-28 20:09:12 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:09:14 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-28 20:09:21 INFO  employeeMgmtPage:226 - ----Edit employee details----
+2025-12-28 20:54:38 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:54:39 INFO  employeeMgmtPage:111 - Adding Employee: Swanandi Bhelkhande| ID: 6581
+2025-12-28 20:54:41 INFO  employeeMgmtPage:180 - ----Clears the textbox values----
+2025-12-28 20:54:44 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-28 20:54:52 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:54:53 INFO  employeeMgmtPage:204 - ----Add Employee Details with blank values----
+2025-12-28 20:54:55 INFO  employeeMgmtPage:180 - ----Clears the textbox values----
+2025-12-28 20:55:00 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:55:02 INFO  employeeMgmtPage:111 - Adding Employee: Kinjal Shah| ID: 1001
+2025-12-28 20:55:06 INFO  employeeMgmtPage:111 - Adding Employee: Raj Patel| ID: 1002
+2025-12-28 20:55:08 INFO  employeeMgmtPage:111 - Adding Employee: Asha Mehta| ID: 1003
+2025-12-28 20:55:11 INFO  employeeMgmtPage:111 - Adding Employee: Vivek Joshi| ID: 1004
+2025-12-28 20:55:14 INFO  employeeMgmtPage:111 - Adding Employee: Rina Desai| ID: 1005
+2025-12-28 20:55:17 INFO  employeeMgmtPage:111 - Adding Employee: Arjun Rana| ID: 1006
+2025-12-28 20:55:21 INFO  employeeMgmtPage:111 - Adding Employee: Pooja Trivedi| ID: 1007
+2025-12-28 20:55:24 INFO  employeeMgmtPage:111 - Adding Employee: Kiran Nair| ID: 1008
+2025-12-28 20:55:28 INFO  employeeMgmtPage:111 - Adding Employee: Priya Bhatt| ID: 1009
+2025-12-28 20:55:31 INFO  employeeMgmtPage:111 - Adding Employee: Hemal Chauhan| ID: 1010
+2025-12-28 20:55:35 INFO  employeeMgmtPage:111 - Adding Employee: Sneha Gohil| ID: 1011
+2025-12-28 20:55:39 INFO  employeeMgmtPage:111 - Adding Employee: Amit Pandya| ID: 1012
+2025-12-28 20:55:42 INFO  employeeMgmtPage:111 - Adding Employee: Dhruv Parmar| ID: 1013
+2025-12-28 20:55:46 INFO  employeeMgmtPage:111 - Adding Employee: Neha Kapadia| ID: 1014
+2025-12-28 20:55:50 INFO  employeeMgmtPage:111 - Adding Employee: Komal Thakkar| ID: 1015
+2025-12-28 20:55:57 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:55:58 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-28 20:56:03 INFO  employeeMgmtPage:226 - ----Edit employee details----
+2025-12-28 20:56:06 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-28 20:56:07 INFO  employeeMgmtPage:148 - Search Employee Details..
+2025-12-28 20:56:13 INFO  employeeMgmtPage:250 - ----Delete employee details----
+2025-12-29 15:08:11 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:08:13 INFO  employeeMgmtPage:115 - Adding Employee: Swanandi Bhelkhande| ID: 6581
+2025-12-29 15:08:17 INFO  employeeMgmtPage:184 - ----Clears the textbox values----
+2025-12-29 15:08:31 INFO  employeeMgmtPage:152 - Search Employee Details..
+2025-12-29 15:09:01 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:09:05 INFO  employeeMgmtPage:208 - ----Add Employee Details with blank values----
+2025-12-29 15:09:09 INFO  employeeMgmtPage:184 - ----Clears the textbox values----
+2025-12-29 15:09:19 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:09:25 INFO  employeeMgmtPage:115 - Adding Employee: Kinjal Shah| ID: 1001
+2025-12-29 15:09:33 INFO  employeeMgmtPage:115 - Adding Employee: Raj Patel| ID: 1002
+2025-12-29 15:09:40 INFO  employeeMgmtPage:115 - Adding Employee: Asha Mehta| ID: 1003
+2025-12-29 15:09:48 INFO  employeeMgmtPage:115 - Adding Employee: Vivek Joshi| ID: 1004
+2025-12-29 15:09:55 INFO  employeeMgmtPage:115 - Adding Employee: Rina Desai| ID: 1005
+2025-12-29 15:09:59 INFO  employeeMgmtPage:115 - Adding Employee: Arjun Rana| ID: 1006
+2025-12-29 15:10:04 INFO  employeeMgmtPage:115 - Adding Employee: Pooja Trivedi| ID: 1007
+2025-12-29 15:10:08 INFO  employeeMgmtPage:115 - Adding Employee: Kiran Nair| ID: 1008
+2025-12-29 15:10:13 INFO  employeeMgmtPage:115 - Adding Employee: Priya Bhatt| ID: 1009
+2025-12-29 15:10:18 INFO  employeeMgmtPage:115 - Adding Employee: Hemal Chauhan| ID: 1010
+2025-12-29 15:10:23 INFO  employeeMgmtPage:115 - Adding Employee: Sneha Gohil| ID: 1011
+2025-12-29 15:10:29 INFO  employeeMgmtPage:115 - Adding Employee: Amit Pandya| ID: 1012
+2025-12-29 15:10:34 INFO  employeeMgmtPage:115 - Adding Employee: Dhruv Parmar| ID: 1013
+2025-12-29 15:10:40 INFO  employeeMgmtPage:115 - Adding Employee: Neha Kapadia| ID: 1014
+2025-12-29 15:10:48 INFO  employeeMgmtPage:115 - Adding Employee: Komal Thakkar| ID: 1015
+2025-12-29 15:11:00 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:11:04 INFO  employeeMgmtPage:152 - Search Employee Details..
+2025-12-29 15:11:12 INFO  employeeMgmtPage:231 - ----Edit employee details----
+2025-12-29 15:11:27 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:11:29 INFO  employeeMgmtPage:152 - Search Employee Details..
+2025-12-29 15:11:37 INFO  employeeMgmtPage:261 - ----Delete employee details----
+2025-12-29 15:11:50 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:11:53 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-29 15:12:01 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-29 15:12:07 INFO  leaveMgmtPage:154 - ---- Assign Leave Started ----
+2025-12-29 15:12:13 INFO  leaveMgmtPage:178 - UI shows dates: FROM=2025-12-15 TO=2025-12-18
+2025-12-29 15:12:13 INFO  leaveMgmtPage:197 - Partial Days visible ? selecting 'None'
+2025-12-29 15:12:14 INFO  leaveMgmtPage:209 - Duration visible ? selecting 'Full Day'
+2025-12-29 15:13:33 INFO  leaveMgmtPage:238 - Assign clicked.
+2025-12-29 15:13:54 INFO  leaveMgmtPage:257 - ---- Assign Leave Completed ----
+2025-12-29 15:13:57 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:13:58 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-29 15:14:06 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-29 15:14:06 INFO  leaveMgmtPage:314 - Search assigned leave: status=Scheduled, type=, emp=, subUnit=
+2025-12-29 15:14:09 INFO  leaveMgmtPage:370 - No leave records found - valid state
+2025-12-29 15:14:14 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:14:19 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-29 15:14:30 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-29 15:14:30 INFO  leaveMgmtPage:314 - Search assigned leave: status=Scheduled, type=, emp=, subUnit=
+2025-12-29 15:14:37 INFO  leaveMgmtPage:370 - No leave records found - valid state
+2025-12-29 15:14:37 INFO  leaveMgmtPage:380 - Attempting to cancel leave if present...
+2025-12-29 15:14:39 INFO  leaveMgmtPage:398 - No cancel link found.
+2025-12-29 15:14:45 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:15:01 INFO  loginPage:47 - Login with invalid credentials: Adminabc
+2025-12-29 15:15:12 INFO  loginPage:63 - Login with empty credentials.
+2025-12-29 15:15:24 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:15:49 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62919}, goog:processID: 17412, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62919/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8121d566651b65e739797e2301569cf8
+2025-12-29 15:15:49 INFO  recruitementPage:79 - Adding Vacancies: QA Lead
+2025-12-29 15:16:19 WARN  recruitementPage:111 - Success message not shown (expected behavior in OrangeHRM)
+2025-12-29 15:16:19 INFO  recruitementPage:114 - Vacancy successfully added.
+2025-12-29 15:16:19 INFO  recruitementPage:122 - ---- Search for Vacancies ----
+2025-12-29 15:16:23 INFO  recruitementPage:159 - Vacancy records found: 1
+2025-12-29 15:16:23 INFO  recruitementPage:194 - Vacancy verified successfully: QA Lead
+2025-12-29 15:16:26 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:16:48 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57310}, goog:processID: 13892, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57310/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6a1c38ed9af09b5d0ec9a7fe927fe41f
+2025-12-29 15:16:48 INFO  candidatePage:67 - Adding Candidates: Jassi||Jaiswar
+2025-12-29 15:17:00 INFO  candidatePage:97 - Candidate added successfully.
+2025-12-29 15:17:08 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 15:17:31 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50689}, goog:processID: 6560, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50689/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 411020419a173ea40483196dfe939276
+2025-12-29 15:17:31 INFO  candidatePage:107 - Searching candidate: Jassi
+2025-12-29 15:17:42 INFO  candidatePage:140 - Candidate FOUND: Jassi
+2025-12-29 15:17:42 INFO  candidatePage:164 - ---- Starting Interview Process ----
+2025-12-29 15:17:43 WARN  candidatePage:183 - No actionable interview buttons found. Candidate already processed. 
+2025-12-29 15:17:43 ERROR candidatePage:101 - No rows found for interview process initiation..
+2025-12-29 18:00:13 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:00:18 INFO  employeeMgmtPage:115 - Adding Employee: Swanandi Bhelkhande| ID: 6581
+2025-12-29 18:00:28 INFO  employeeMgmtPage:184 - ----Clears the textbox values----
+2025-12-29 18:00:36 INFO  employeeMgmtPage:152 - Search Employee Details..
+2025-12-29 18:00:59 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:01:05 INFO  employeeMgmtPage:208 - ----Add Employee Details with blank values----
+2025-12-29 18:01:09 INFO  employeeMgmtPage:184 - ----Clears the textbox values----
+2025-12-29 18:01:20 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:01:27 INFO  employeeMgmtPage:115 - Adding Employee: Kinjal Shah| ID: 1001
+2025-12-29 18:01:37 INFO  employeeMgmtPage:115 - Adding Employee: Raj Patel| ID: 1002
+2025-12-29 18:01:44 INFO  employeeMgmtPage:115 - Adding Employee: Asha Mehta| ID: 1003
+2025-12-29 18:01:51 INFO  employeeMgmtPage:115 - Adding Employee: Vivek Joshi| ID: 1004
+2025-12-29 18:01:59 INFO  employeeMgmtPage:115 - Adding Employee: Rina Desai| ID: 1005
+2025-12-29 18:02:08 INFO  employeeMgmtPage:115 - Adding Employee: Arjun Rana| ID: 1006
+2025-12-29 18:02:12 INFO  employeeMgmtPage:115 - Adding Employee: Pooja Trivedi| ID: 1007
+2025-12-29 18:02:16 INFO  employeeMgmtPage:115 - Adding Employee: Kiran Nair| ID: 1008
+2025-12-29 18:02:20 INFO  employeeMgmtPage:115 - Adding Employee: Priya Bhatt| ID: 1009
+2025-12-29 18:02:24 INFO  employeeMgmtPage:115 - Adding Employee: Hemal Chauhan| ID: 1010
+2025-12-29 18:02:29 INFO  employeeMgmtPage:115 - Adding Employee: Sneha Gohil| ID: 1011
+2025-12-29 18:02:34 INFO  employeeMgmtPage:115 - Adding Employee: Amit Pandya| ID: 1012
+2025-12-29 18:02:38 INFO  employeeMgmtPage:115 - Adding Employee: Dhruv Parmar| ID: 1013
+2025-12-29 18:02:43 INFO  employeeMgmtPage:115 - Adding Employee: Neha Kapadia| ID: 1014
+2025-12-29 18:02:48 INFO  employeeMgmtPage:115 - Adding Employee: Komal Thakkar| ID: 1015
+2025-12-29 18:02:59 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:03:03 INFO  employeeMgmtPage:152 - Search Employee Details..
+2025-12-29 18:03:13 INFO  employeeMgmtPage:231 - ----Edit employee details----
+2025-12-29 18:03:25 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:03:27 INFO  employeeMgmtPage:152 - Search Employee Details..
+2025-12-29 18:03:35 INFO  employeeMgmtPage:261 - ----Delete employee details----
+2025-12-29 18:03:46 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:03:49 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-29 18:03:56 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-29 18:03:59 INFO  leaveMgmtPage:154 - ---- Assign Leave Started ----
+2025-12-29 18:04:07 INFO  leaveMgmtPage:178 - UI shows dates: FROM=2025-12-15 TO=2025-12-18
+2025-12-29 18:04:07 INFO  leaveMgmtPage:197 - Partial Days visible ? selecting 'None'
+2025-12-29 18:04:08 INFO  leaveMgmtPage:209 - Duration visible ? selecting 'Full Day'
+2025-12-29 18:05:26 INFO  leaveMgmtPage:238 - Assign clicked.
+2025-12-29 18:05:47 INFO  leaveMgmtPage:257 - ---- Assign Leave Completed ----
+2025-12-29 18:05:53 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:05:56 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-29 18:06:06 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-29 18:06:06 INFO  leaveMgmtPage:314 - Search assigned leave: status=Scheduled, type=, emp=, subUnit=
+2025-12-29 18:06:15 INFO  leaveMgmtPage:370 - No leave records found - valid state
+2025-12-29 18:06:29 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:06:34 INFO  leaveMgmtPage:78 - Checking Leave module initialization...
+2025-12-29 18:06:44 INFO  leaveMgmtPage:99 - Leave module already initialized. Skipping setup.
+2025-12-29 18:06:44 INFO  leaveMgmtPage:314 - Search assigned leave: status=Scheduled, type=, emp=, subUnit=
+2025-12-29 18:06:52 INFO  leaveMgmtPage:370 - No leave records found - valid state
+2025-12-29 18:06:52 INFO  leaveMgmtPage:380 - Attempting to cancel leave if present...
+2025-12-29 18:06:56 INFO  leaveMgmtPage:398 - No cancel link found.
+2025-12-29 18:07:06 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:07:26 INFO  loginPage:47 - Login with invalid credentials: Adminabc
+2025-12-29 18:07:42 INFO  loginPage:63 - Login with empty credentials.
+2025-12-29 18:07:51 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:08:17 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52039}, goog:processID: 14776, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52039/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 27f014b5d2ac85b1ec55f65170cec771
+2025-12-29 18:08:17 INFO  recruitementPage:79 - Adding Vacancies: QA Lead
+2025-12-29 18:08:52 WARN  recruitementPage:111 - Success message not shown (expected behavior in OrangeHRM)
+2025-12-29 18:08:52 INFO  recruitementPage:114 - Vacancy successfully added.
+2025-12-29 18:08:52 INFO  recruitementPage:122 - ---- Search for Vacancies ----
+2025-12-29 18:08:58 INFO  recruitementPage:159 - Vacancy records found: 1
+2025-12-29 18:08:58 INFO  recruitementPage:194 - Vacancy verified successfully: QA Lead
+2025-12-29 18:09:05 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:09:32 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61944}, goog:processID: 9360, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61944/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3c38a3b888f1b7feee29e7ca22b319f8
+2025-12-29 18:09:32 INFO  candidatePage:67 - Adding Candidates: Jassi||Jaiswar
+2025-12-29 18:09:45 INFO  candidatePage:97 - Candidate added successfully.
+2025-12-29 18:09:53 INFO  loginPage:33 - Login with valid credentials: Admin Passw@rd$2025
+2025-12-29 18:10:17 WARN  candidatePage:30 - Recruitment precondition skipped: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@placeholder='Type for hints...'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\bhoik\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54294}, goog:processID: 25324, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54294/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5d312e3f826586f0e2ec7cf3466abd63
+2025-12-29 18:10:17 INFO  candidatePage:107 - Searching candidate: Jassi
+2025-12-29 18:10:25 INFO  candidatePage:140 - Candidate FOUND: Jassi
+2025-12-29 18:10:25 INFO  candidatePage:164 - ---- Starting Interview Process ----
+2025-12-29 18:10:26 WARN  candidatePage:183 - No actionable interview buttons found. Candidate already processed. 
+2025-12-29 18:10:26 ERROR candidatePage:101 - No rows found for interview process initiation..

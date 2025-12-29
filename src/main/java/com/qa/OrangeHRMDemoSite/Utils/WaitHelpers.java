@@ -20,7 +20,6 @@ public class WaitHelpers {
         return new WebDriverWait(driver(), Duration.ofSeconds(seconds));
     }
 
-
     // ==============================
     //   GLOBAL ORANGEHRM WAITERS
     // ==============================
@@ -149,4 +148,5 @@ public class WaitHelpers {
 
         sleep(500); // small buffer
     }
+
 }

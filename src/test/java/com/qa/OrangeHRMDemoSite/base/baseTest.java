@@ -6,14 +6,36 @@ import com.qa.OrangeHRMDemoSite.pages.loginPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 
 public class baseTest {
     //private driverMgr driverMgr;
     protected WebDriver driver;
+
+    @BeforeSuite(alwaysRun = true)
+    public void setupAllureEnvironment(){
+        try{
+            Path source=Paths.get("src/test/resources/environment.properties");
+            Path targetDir = Paths.get("target/allure-results");
+
+            Files.createDirectories(targetDir);
+            Files.copy(source,targetDir.resolve("environment.properties"),
+            StandardCopyOption.REPLACE_EXISTING);
+
+            System.out.println("Allure environment.properties copied successfully.");
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
     @BeforeMethod(alwaysRun = true)
     public void setUp(Method method){

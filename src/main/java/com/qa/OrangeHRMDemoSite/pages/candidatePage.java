@@ -208,16 +208,6 @@ public class candidatePage extends basePage {
         log.warn("Search completed but no rows and no 'No Records Found' message.");
         return false;
 
-        //Check for validation errors
-//        WaitHelpers.waitForPresence(By.xpath("//span[contains(@class,'oxd-input-field-error-message')]"));
-//
-//        List<WebElement> errors = driver().findElements(
-//                By.xpath("//span[contains(@class,'oxd-input-field-error-message')]"));
-//
-//        if(!errors.isEmpty()) {
-//            throw new AssertionError("Validation failed: " + errors.get(0).getText());
-//        }
-
         //log.info("---- Interview process initiated successfully ----");
     }
 

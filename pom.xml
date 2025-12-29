@@ -88,4 +88,21 @@
           <version>2.24.1</version>
       </dependency>
   </dependencies>
+    <build>
+        <plugins>
+            <!-- ✅ ADD SUREFIRE PLUGIN HERE -->
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.5</version>
+            <configuration>
+                <systemPropertyVariables>
+                    <allure.results.directory>
+                        ${project.build.directory}/allure-results
+                    </allure.results.directory>
+                </systemPropertyVariables>
+            </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
