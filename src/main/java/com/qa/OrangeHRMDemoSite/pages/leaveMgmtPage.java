@@ -154,6 +154,10 @@ public class leaveMgmtPage extends basePage {
         log.info("---- Assign Leave Started ----");
 
         clickElement(leaveLink);
+        WaitHelpers.waitForStaleSafe(leaveLink);
+
+        WaitHelpers.waitForLoaderToDisappear();
+        WaitHelpers.waitForClickable(assignLeaveTab);
         clickElement(assignLeaveTab);
 
         // Employee

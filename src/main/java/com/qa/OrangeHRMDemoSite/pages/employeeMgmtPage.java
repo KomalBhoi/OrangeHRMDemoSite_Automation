@@ -6,6 +6,7 @@ import com.qa.OrangeHRMDemoSite.driver.driverMgr;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
@@ -213,13 +214,23 @@ public class employeeMgmtPage extends basePage {
         WaitHelpers.waitForVisible(addEmpBtn);
         clickElement(addEmpBtn);
         clearEmpDetails();
+        WaitHelpers.waitForLoaderToDisappear();
         WaitHelpers.waitForVisible(empFirstNm);
         clickElement(empFirstNm);
         actions.sendKeys(Keys.TAB).perform();  // tab out of field
+
+        WaitHelpers.waitForLoaderToDisappear();
+        WaitHelpers.waitForVisible(empLastNm);
         clickElement(empLastNm);
         actions.sendKeys(Keys.TAB).perform();
+
+        WaitHelpers.waitForLoaderToDisappear();
+        WaitHelpers.waitForVisible(empId);
         clickElement(empId);
         actions.sendKeys(Keys.TAB).perform();
+
+        WaitHelpers.waitForLoaderToDisappear();
+        WaitHelpers.waitForClickable(saveBtn);
         clickElement(saveBtn);
 
         WebElement msg = WaitHelpers.waitForPresence(errorLocator); //wait.until(ExpectedConditions.presenceOfElementLocated(errorLocator));
@@ -241,6 +252,7 @@ public class employeeMgmtPage extends basePage {
             WaitHelpers.waitForLoaderToDisappear();
             WaitHelpers.waitForClickable(firstrow);
             firstrow.click();
+
             WaitHelpers.waitForLoaderToDisappear();
             WaitHelpers.waitForVisible(otherID);
             clearText(otherID);
@@ -263,8 +275,11 @@ public class employeeMgmtPage extends basePage {
         WaitHelpers.waitForVisible(By.xpath("//h6[text()='PIM']"));
         scrollTo(pimLink);
         WaitHelpers.waitForStaleSafe(pimLink);
+
+        WaitHelpers.waitForLoaderToDisappear();
         WaitHelpers.waitForClickable(empListTab);
         clickElement(empListTab);
+
         WaitHelpers.waitForPresence(tableRows);
         List<WebElement> rows=driverMgr.getDriver().findElements(tableRows);
         System.out.println("No of rows: "+rows.size());

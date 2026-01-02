@@ -27,13 +27,20 @@ public class WaitHelpers {
     // 1️⃣ Wait for loader/spinner to disappear
     private static final By LOADER = By.cssSelector(".oxd-form-loader");
 
-    public static void waitForLoaderToDisappear() {
-        By loader = By.xpath("//div[contains(@class,'oxd-form-loader')]");
-        try {
-            getWait(25).until(ExpectedConditions.invisibilityOfElementLocated(loader));
-        } catch (TimeoutException e) {
-            // ignore for demo/docker slowness
-        }
+//    public static void waitForLoaderToDisappear() {
+//        By loader = By.xpath("//div[contains(@class,'oxd-form-loader')]");
+//        try {
+//            getWait(25).until(ExpectedConditions.invisibilityOfElementLocated(loader));
+//        } catch (TimeoutException e) {
+//            // ignore for demo/docker slowness
+//        }
+//    }
+
+    public static void waitForLoaderToDisappear(){
+        try{
+            WebDriverWait wait = new WebDriverWait(driverMgr.getDriver(),Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".oxd-form-loader")));
+        }catch(TimeoutException e){}
     }
 
     public static void waitForPageReady() {
