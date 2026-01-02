@@ -101,6 +101,9 @@
                         ${project.build.directory}/allure-results
                     </allure.results.directory>
                 </systemPropertyVariables>
+                <suiteXmlFiles>
+                    <suiteXmlFile>testng.xml</suiteXmlFile>
+                </suiteXmlFiles>
             </configuration>
             </plugin>
         </plugins>

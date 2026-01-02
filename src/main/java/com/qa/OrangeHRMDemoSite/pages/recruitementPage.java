@@ -36,7 +36,7 @@ public class recruitementPage extends basePage {
     private By noOfPositions = By.xpath("(//input[@class='oxd-input oxd-input--active'])[3]");
     private By activeSwitch = By.xpath("(//span[contains(@class,'oxd-switch-input')])[1]");
     private By publicSwitch = By.xpath("(//span[contains(@class,'oxd-switch-input')])[2]");
-    private By saveBtn = By.xpath("//button[@type='submit' and text()=' Save ']");
+    private By saveBtn = By.xpath("//button[@type='submit' and normalize-space()='Save']");
     private By candidatesTab = By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and text()='Candidates']");
 
     //Search for job Vacancies
@@ -44,7 +44,7 @@ public class recruitementPage extends basePage {
     private By searchVacancy = By.xpath("(//div[@class='oxd-select-text-input'])[2]");
     private By searchHiringMgrNm = By.xpath("(//div[@class='oxd-select-text-input'])[3]");
     private By searchStatus = By.xpath("(//div[@class='oxd-select-text-input'])[4]");
-    private By searchBtn = By.xpath("//button[@type='submit' and text()=' Search ']");
+    private By searchBtn = By.xpath("//button[@type='submit' and normalize-space()='Search']");
 
 
     public void addVacancies(String vacancyNm,String jobTtl,String desc,String hiringMgrNm,

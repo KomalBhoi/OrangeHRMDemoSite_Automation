@@ -33,10 +33,14 @@ public class loginPage extends basePage {
        log.info("Login with valid credentials: "+user+" "+pwd);
 
        openOrangeHRMUrl();
-       WaitHelpers.waitForVisible(username);
 
+       WaitHelpers.waitForLoaderToDisappear();
+       WaitHelpers.waitForVisible(username);
        enterInput(username,user);
        enterInput(password,pwd);
+
+       WaitHelpers.waitForLoaderToDisappear();
+       WaitHelpers.waitForClickable(loginBtn);
        clickElement(loginBtn);
    }
 

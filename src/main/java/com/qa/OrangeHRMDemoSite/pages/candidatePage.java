@@ -2,14 +2,12 @@ package com.qa.OrangeHRMDemoSite.pages;
 
 import com.qa.OrangeHRMDemoSite.Utils.WaitHelpers;
 import com.qa.OrangeHRMDemoSite.base.basePage;
-import com.qa.OrangeHRMDemoSite.driver.driverMgr;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 import static com.qa.OrangeHRMDemoSite.Utils.browserUtils.scrollTo;
-import static com.qa.OrangeHRMDemoSite.driver.driverMgr.driver;
 import static com.qa.OrangeHRMDemoSite.driver.driverMgr.getDriver;
 
 public class candidatePage extends basePage {
@@ -35,8 +33,8 @@ public class candidatePage extends basePage {
     private By dtOfApplication = By.xpath("//input[@placeholder='yyyy-dd-mm']");
     private By notesInput = By.xpath("//textarea[@placeholder='Type here']");
     private By consentChk = By.xpath("//i[contains(@class,'oxd-icon bi-check')]");
-    private By saveBtn = By.xpath("//button[@type='submit' and text()=' Save ']");
-    private By cancelBtn = By.xpath("//button[@type='submit' and text()=' Cancel ']");
+    private By saveBtn = By.xpath("//button[@type='submit' and normalize-space()='Save']");
+    private By cancelBtn = By.xpath("//button[@type='submit' and normalize-space()='Cancel']");
 
     // Search Candidate
     private By searchJobTitle=By.xpath("(//div[@class='oxd-select-text-input'])[1]");
@@ -48,7 +46,7 @@ public class candidatePage extends basePage {
     private By searchFromDt = By.xpath("//input[@placeholder='From']");
     private By searchToDt = By.xpath("//input[@placeholder='To']");
     private By searchMethodOfApp = By.xpath("(//div[@class='oxd-select-text-input'])[5]");
-    private By searchBtn = By.xpath("//button[@type='submit' and text()=' Search ']");
+    private By searchBtn = By.xpath("//button[@type='submit' and normalize-space()='Search']");
 
     // Interview Page
     private By viewIcon = By.xpath("//i[contains(@class,'oxd-icon bi-eye')]");

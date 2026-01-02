@@ -4,6 +4,7 @@ import com.qa.OrangeHRMDemoSite.Utils.PropertiesReader;
 import com.qa.OrangeHRMDemoSite.driver.driverMgr;
 import com.qa.OrangeHRMDemoSite.pages.loginPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -19,7 +20,7 @@ import java.util.Arrays;
 
 public class baseTest {
     //private driverMgr driverMgr;
-    protected WebDriver driver;
+    //protected WebDriver driver;
 
     @BeforeSuite(alwaysRun = true)
     public void setupAllureEnvironment(){
@@ -40,10 +41,10 @@ public class baseTest {
     @BeforeMethod(alwaysRun = true)
     public void setUp(Method method){
 
-        driver = driverMgr.init();
-        driverMgr.setDriver(driver);
+        driverMgr.initDriver();
+        driverMgr.setDriver(driverMgr.getDriver());
 
-        driver.get(PropertiesReader.readKey("url"));
+        driverMgr.getDriver().get(PropertiesReader.readKey("url"));
 
         boolean requiresLogin = method.isAnnotationPresent(Test.class) &&
                 Arrays.asList(method.getAnnotation(Test.class).groups()).contains("loginRequired");
@@ -54,14 +55,14 @@ public class baseTest {
                 PropertiesReader.readKey("username"),
                 PropertiesReader.readKey("password"));
         }
+
+        //System.out.println("Thread ID: " + Thread.currentThread().getId() +
+        //        " | URL: "+driverMgr.getDriver().getCurrentUrl());
     }
 
     @AfterMethod
     public void tearDown(){
-        if(driver != null) {
-            //driverMgr.tearDown();
-            driver.quit();
-        }
+        driverMgr.quitDriver();
         driverMgr.unload();
     }
 }

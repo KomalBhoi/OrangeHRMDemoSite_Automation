@@ -13,7 +13,7 @@ public class empAttendanceRecordPage extends basePage {
 
     // Time tab
     private By timeLink=By.xpath("//span[contains(@class,'oxd-text oxd-text--span') and text()='Time']");
-    private By attendanceTopBar = By.xpath("//span[contains(@class,'oxd-topbar-body-nav-tab-item') and text()='Attendance ']");
+    private By attendanceTopBar = By.xpath("//span[contains(@class,'oxd-topbar-body-nav-tab-item') and normalize-space()='Attendance']");
     private By punchInOutMenu = By.xpath("//a[contains(@class,'oxd-topbar-body-nav-tab-link') and text()='Punch In/Out']");
     private By attendanceDt = By.xpath("//input[@placeholder='yyyy-dd-mm']");
     private By punchInOutTime = By.xpath("//input[@placeholder='hh:mm']");

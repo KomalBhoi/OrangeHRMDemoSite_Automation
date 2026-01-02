@@ -14,35 +14,41 @@ import java.time.Duration;
 public class driverMgr {
 
     private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    //private driverMgr() {}
+    //public static WebDriver driver;
 
-    public static WebDriver driver;
-
+    //Get thread-safe driver
     public static WebDriver getDriver() {
-        WebDriver driver =tlDriver.get();
-        if(driver == null) {
-            throw new IllegalStateException("Webdriver is NULL.Did you forget initDriver?");
+        //WebDriver driver =tlDriver.get();
+        if(tlDriver.get() == null) {
+            throw new IllegalStateException("Webdriver is NULL.Did you forget init()?");
         }
-        return driver;
+        return tlDriver.get();
     }
 
     public static void setDriver(WebDriver driver) {
-        if(driverMgr.driver == null){
+        if(driverMgr.getDriver() == null){
             throw new IllegalArgumentException("Driver must be set");
         }
         tlDriver.set(driver);
     }
 
     // When we want to start the browser
-    public static WebDriver init() {
+    public static void initDriver() {
+
+//        if(tlDriver.get() != null){
+//            return; // already initialized for this thread.
+//        }
 
         String browserNm = PropertiesReader.readKey("browser").toLowerCase();
+        WebDriver driver;
 
         switch (browserNm) {
 
             case "chrome": {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--start-maximized");
-                chromeOptions.addArguments("--remote-allow-origins=*");
+                //chromeOptions.addArguments("--remote-allow-origins=*");
                 chromeOptions.addArguments("--disable-notifications");
                 driver = new ChromeDriver(chromeOptions);
                 break;
@@ -51,7 +57,7 @@ public class driverMgr {
             case "edge": {
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.addArguments("--start-maximized");
-                edgeOptions.addArguments("--guest");
+                //edgeOptions.addArguments("--guest");
                 driver = new EdgeDriver(edgeOptions);
                 break;
             }
@@ -64,25 +70,26 @@ public class driverMgr {
             }
 
             default:
-                throw new RuntimeException(
-                        "Unsupported browser: " + browserNm +
-                                ". Supported: chrome | edge | firefox"
-                );
+                throw new RuntimeException("Unsupported browser: " + browserNm +
+                        ". Supported: chrome | edge | firefox");
         }
 
         // ✅ Common configuration (for ALL browsers)
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 
-        System.out.println("✅ Driver initialized for browser: " + browserNm);
-        return driver;
+        tlDriver.set(driver);
+
+        System.out.println("Class: "+ driver.getClass().getSimpleName()+"| Thread: " + Thread.currentThread().getId());
+       // return driver;
     }
 
     // When we want to close the browser
-    public static void tearDown() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
+    public static void quitDriver() {
+        //WebDriver driver = tlDriver.get();
+        if (tlDriver.get() != null) {
+            tlDriver.get().quit();
+            tlDriver.remove();
         }
     }
 

@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 import static com.qa.OrangeHRMDemoSite.Utils.browserUtils.scrollTo;
-import static com.qa.OrangeHRMDemoSite.driver.driverMgr.driver;
+
 
 public class leaveMgmtPage extends basePage {
 
@@ -24,8 +24,8 @@ public class leaveMgmtPage extends basePage {
     }
 
     //Assign Leave
-    private By leaveLink = By.xpath("//span[text()='Leave']");
-    private By assignLeaveTab = By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and text()='Assign Leave']");
+    private By leaveLink = By.xpath("//span[normalize-space()='Leave']");
+    private By assignLeaveTab = By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and normalize-space()='Assign Leave']");
     private By empName = By.xpath("//input[contains(@placeholder,'Type for')]");
     private By leaveType = By.xpath("//div[@class='oxd-select-text-input']");
     private By fromDtToSelect = By.xpath("(//input[contains(@placeholder,'yyyy')])[1]");
@@ -33,12 +33,12 @@ public class leaveMgmtPage extends basePage {
     private By fromDateContainer = By.xpath("(//div[contains(@class,'oxd-date-input')])[1]");
     private By toDateContainer   = By.xpath("(//div[contains(@class,'oxd-date-input')])[2]");
     private By commentTxt = By.xpath("//textarea[contains(@class,'oxd-textarea')]");
-    private By assignBtn = By.xpath("//button[@type='submit' and text()=' Assign ']");
+    private By assignBtn = By.xpath("//button[@type='submit' and normalize-space()='Assign']");
 
     //Search assigned leave
-    private By leaveListTab = By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and text()='Leave List']");
+    private By leaveListTab = By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and normalize-space()='Leave List']");
     private By searchleaveStatus = By.xpath("(//div[@class='oxd-select-text-input'])[1]");
-    private By searchleaveType = By.xpath("//div[@class='oxd-layout-context']//label[text()='Leave Type']" +
+    private By searchleaveType = By.xpath("//div[@class='oxd-layout-context']//label[normalize-space()='Leave Type']" +
             "/following::div[contains(@class,'oxd-select-text-input')][1]");
     private By searchEmpNm = By.xpath("//div[@class='oxd-layout-context']//input[@placeholder='Type for hints...']");
     private By searchSubUnit = By.xpath("//div[@class='oxd-layout-context']//label[text()='Sub Unit']/following::div[contains(@class,'oxd-select-text-input')][1]");
@@ -49,9 +49,9 @@ public class leaveMgmtPage extends basePage {
     private By partialDaysSection = By.xpath("//label[text()='Partial Days']");
     private By partialDaysDropdown = By.xpath("//label[text()='Partial Days']/following::div[@class='oxd-select-text-input'][1]");
     private By partialDaysOptionNone = By.xpath("//div[@role='option']//span[text()='None']");
-    private By alertOkBtn=By.xpath("//button[text()=' Ok ']");
+    private By alertOkBtn=By.xpath(".//button[.//text()[normalize-space()='Ok']]");
     private By configureTab = By.xpath("//span[text()='Configure ']");
-    private By addLeaveType = By.xpath("//a[@role='menuitem' and text()='Leave Types']");
+    private By addLeaveType = By.xpath("//a[@role='menuitem' and normalize-space()='Leave Types']");
     private By addBtnLeaveType = By.xpath("//i[@class='oxd-icon bi-plus oxd-button-icon']");
     private By leaveTypeNm = By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]");
     private By saveBtn = By.xpath("//button[@type='submit']");
@@ -157,7 +157,10 @@ public class leaveMgmtPage extends basePage {
         clickElement(assignLeaveTab);
 
         // Employee
+        WaitHelpers.waitForLoaderToDisappear();
+        WaitHelpers.waitForClickable(empName);
         enterInput(empName, empNm);
+
         By suggestion = By.xpath("//div[@role='option']//span[contains(text(),'" + empNm + "')]");
         WaitHelpers.waitForClickable(suggestion);
         clickElement(suggestion);
@@ -232,13 +235,14 @@ public class leaveMgmtPage extends basePage {
         WaitHelpers.waitForClickable(assignBtn);
         clickElement(assignBtn);
 
+        WaitHelpers.waitForLoaderToDisappear();
         WaitHelpers.waitForClickable(alertOkBtn);
         clickElement(alertOkBtn);
 
         log.info("Assign clicked.");
 
         // Validation Error?
-        List<WebElement> errors = driver.findElements(
+        List<WebElement> errors = driverMgr.getDriver().findElements(
                 By.xpath("//span[contains(@class,'oxd-input-field-error-message')]")
         );
 
@@ -259,11 +263,11 @@ public class leaveMgmtPage extends basePage {
     }
 
     private boolean isPartialDaysVisible() {
-        return driver.findElements(By.xpath("//label[text()='Partial Days']")).size() > 0;
+        return driverMgr.getDriver().findElements(By.xpath("//label[text()='Partial Days']")).size() > 0;
     }
 
     private boolean isDurationVisible() {
-        return driver.findElements(By.xpath("//label[text()='Duration']")).size() > 0;
+        return driverMgr.getDriver().findElements(By.xpath("//label[text()='Duration']")).size() > 0;
     }
 
     /** Validates YYYY-DD-MM */
@@ -385,7 +389,7 @@ public class leaveMgmtPage extends basePage {
         // wait for Cancel link if present
         By cancelLink = By.xpath("//a[text()='Cancel']");
         if (isElementPresent(cancelLink)) {
-            driver.findElements(cancelLink).get(0).click();
+            driverMgr.getDriver().findElements(cancelLink).get(0).click();
 
             // wait for success toast or message
             try {

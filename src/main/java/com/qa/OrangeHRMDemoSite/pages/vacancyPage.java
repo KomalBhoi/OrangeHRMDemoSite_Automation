@@ -33,14 +33,14 @@ public class vacancyPage extends basePage {
     private By noOfPositions = By.xpath("//label[text()='Number of Positions']/ancestor::div[contains(@class,'oxd-input-group')]//input");
     private By activeSwitch = By.xpath("(//span[contains(@class,'oxd-switch-input')])[1]");
     private By publicSwitch = By.xpath("(//span[contains(@class,'oxd-switch-input')])[2]");
-    private By saveBtn = By.xpath("//button[@type='submit' and text()=' Save ']");
+    private By saveBtn = By.xpath("//button[@type='submit' and normalize-space()='Save']");
 
     //Search Fields
     private By searchJobTitle = By.xpath("(//div[@class='oxd-select-text-input'])[1]");
     private By searchVacancy = By.xpath("(//div[@class='oxd-select-text-input'])[2]");
     private By searchHiringMgrNm = By.xpath("(//div[@class='oxd-select-text-input'])[3]");
     private By searchStatus = By.xpath("(//div[@class='oxd-select-text-input'])[4]");
-    private By searchBtn = By.xpath("//button[@type='submit' and text()=' Search ']");
+    private By searchBtn = By.xpath("//button[@type='submit' and normalize-space()='Search']");
 
     private By tableRows = By.xpath("//div[@class='oxd-table-body']//div[@role='row']");
     private By noRows = By.xpath("//span[text()='No Records Found']");
